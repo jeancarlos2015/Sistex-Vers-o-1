@@ -21,14 +21,15 @@ public class DaoCliente implements Dao{
     private final Persistencia conexao = f.criaPersistencia();
     
     @Override
-    public boolean cadastrar(Item item) {
+    public boolean cadastrar(Item cliente) {
+        Cliente item = (Cliente) cliente;
         return conexao.executar("INSERT INTO CLIENTE(codigo_funcionario, nome, idade, cpf, email, senha) " +
-        "VALUES("+item.getCodigo()+",'"+item.getNome()+"',"+item.getIdade()+",'"+item.getCpf()+"','"+item.getEmail()+"','"+item.getSenha()+"')");
+        "VALUES("+item.getCodigo_funcionario()+",'"+item.getNome()+"',"+item.getIdade()+",'"+item.getCpf()+"','"+item.getEmail()+"','"+item.getSenha()+"')");
     }
 
     @Override
     public boolean excluir(Item item) {
-        return conexao.executar("Delete FROM CLIENTE WHERE cpf="+item.getCpf());
+        return conexao.executar("Delete FROM CLIENTE WHERE cpf='"+item.getCpf()+"'");
     }
 
     @Override
@@ -51,24 +52,14 @@ public class DaoCliente implements Dao{
 
     @Override
     public boolean existe(Item item) {
-        String[] valores = conexao.getValores("SELECT cpf FROM cliente WHERE cpf="+item.getCpf());
-        for(String str:valores){
-            if(item.getCpf().equals(str)){
-                return true;
-            }
-        }
-        return false;
+       String info = conexao.getValores("SELECT cpf FROM cliente WHERE cpf='"+item.getCpf()+"'");
+       return info.equals(item.getCpf());
     }
 
     @Override
     public boolean existe(String codigo) {
-        String[] valores = conexao.getValores("SELECT cpf from cliente where cpf='"+codigo+"'");
-        for(String str:valores){
-            if(str.equals(codigo)){
-                return true;
-            }
-        }
-        return false;
+        String info = conexao.getValores("SELECT cpf FROM cliente WHERE codigo="+codigo);
+        return info.equals(codigo);
     }
 
     @Override

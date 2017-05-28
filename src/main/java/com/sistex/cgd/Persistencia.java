@@ -134,31 +134,30 @@ public class Persistencia {
         }
            
     }
-    public  String[] getValores(String comando){
+    public  String getValores(String comando){
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, usuario, senha);
             stm = con.createStatement(); 
-            rs = stm.executeQuery(comando);
+            rs = stm.executeQuery(comando.toLowerCase());
             String result="";
-            rs.next();
-            int index;
-           
-            List<String> itens = obterColunas(comando);
-            do {
-                for(index=0;index<itens.size()-1;index++){
-                    result +=rs.getString(itens.get(index))+",";
+            List<String> itens = obterColunas(comando.toLowerCase());
+            int index=0;
+            while(rs.next()){
+                if(itens.size()==1){
+                    result+=rs.getString(itens.get(0));
+                }else{
+                    for(index=0;index<itens.size()-1;index++){
+                        result +=rs.getString(itens.get(index))+",";
+                    }
+                    result+=rs.getString(itens.get(index))+";";
                 }
-                result+=rs.getString(itens.get(index))+";";
-            }while (rs.next());
+            }    
             rs.close();
             stm.close();
-            
-            //Editado 21/09/2011 para correção: executeQuery é usado para pesquisa, executeUpdate deve ser usado para inserir  
             con.close();
-            return result.split(";");
+            return result;
         } catch (SQLException |ArrayIndexOutOfBoundsException | ClassNotFoundException ex) {
-            System.out.println(ex.getCause());
               return null;
         }
        

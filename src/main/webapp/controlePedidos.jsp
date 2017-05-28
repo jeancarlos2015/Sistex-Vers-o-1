@@ -12,6 +12,10 @@
         <meta charset="utf-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
     	<title> CADASTRO DE PEDIDOS </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
     	<link rel="stylesheet" href="css/style.css">
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
@@ -27,9 +31,10 @@
                <a class="btn-close"><i class="fa fa-times"></i></a>
                <ul>
                    <li class="home"><a href="index.jsp">Home</a></li>
-                   <li class="acesso123"><a href="cadastroPedidos.jsp">Pedidos</a></li>
-                   <li class="sobre"><a href="cadastroProdutos.jsp">Produtos</a></li>
-                   <li class="contato"><a href="cadastroClientes.jsp">Clientes</a></li>
+                   <li class="acesso123"><a href="controlePedidos.jsp">Pedidos</a></li>
+                   <li class="sobre"><a href="controleProdutos.jsp">Produtos</a></li>
+                   <li class="contato"><a href="controleClientes.jsp">Clientes</a></li>
+                   <li class="contato"><a href="controleFuncionarios.jsp">Funcionários</a></li>
 
                </ul>
            </nav>
@@ -37,11 +42,13 @@
 <!-- Formulario de cadastro  -->
         <section class="newsletter container bg-grey">
             <h1 class="bg-titulo">CADASTRO DE PEDIDOS</h1>
-            <form method="post" action="CadastroPedido" onsubmit="mensagem();">
-                <input class="bg-white radius campo" type="text"  name="codigo" placeholder="Digite o código" required>
-                <input class="bg-white radius campo" type="text" name="descricao" placeholder="Coloque a descrição" required>
-                <input class="bg-white radius campo" type="text"  name="marca" placeholder="Coloque a marca" required>
-                <input class="bg-white radius campo" type="text"  name="quantidade" placeholder="Digite a quantidade" required>
+            <form method="post" action="Controlador" onsubmit="mensagem();">
+                <input class="bg-white radius campo" type="text"  name="codigo_cliente" placeholder="Codigo do cliente" required>
+                <input class="bg-white radius campo" type="text" name=codigo_produto" placeholder="Codigo do produto" required>
+                <input class="bg-white radius campo" type="text"  name="descricao" placeholder="Descricao" required>
+                <input class="bg-white radius campo" type="text"  name="preco" placeholder="Digite o preço" required>
+                <input class="oculto" type="text" value="pedido"  name="tipo">
+                <input class="oculto" type="text" value="cadastro"  name="operacao">
                 <button type="submit" class="bg-white radius campo"> Cadastrar Pedido</button>
             </form>
         </section>

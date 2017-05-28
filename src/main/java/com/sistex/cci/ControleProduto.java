@@ -21,8 +21,13 @@ import javax.servlet.http.HttpServletResponse;
 public class ControleProduto extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        PrintWriter out = response.getWriter();
+        out.println(request.getParameter("nome"));
+        out.println(request.getParameter("descricao"));
+        out.println(request.getParameter("preco"));
+        out.println(request.getParameter("marca"));
+        out.println(request.getParameter("quantidade"));
     }
 }

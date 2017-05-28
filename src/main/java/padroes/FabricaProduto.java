@@ -5,11 +5,15 @@
  */
 package padroes;
 
+import cgt.Api;
+import cgt.ProdutoApi;
+import com.sistex.cci.ControleProduto;
 import com.sistex.cdp.Item;
 import com.sistex.cdp.Produto;
 import com.sistex.cgd.Dao;
 import com.sistex.cgd.DaoProduto;
 import com.sistex.cgd.Persistencia;
+import javax.servlet.http.HttpServlet;
 
 /**
  *
@@ -24,4 +28,10 @@ public class FabricaProduto extends Fabrica{
     
     @Override
     public Persistencia criaPersistencia(){return new Persistencia();}
+    
+    @Override
+    public HttpServlet criaControle(){return new ControleProduto();}
+    
+    @Override
+    public Api criaApi(){return new ProdutoApi();}
 }

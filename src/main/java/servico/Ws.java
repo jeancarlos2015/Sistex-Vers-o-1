@@ -21,6 +21,7 @@ import javax.jws.WebParam;
 import padroes.Fabrica;
 import padroes.Tipo;
 import static padroes.Tipo.pedido;
+import util.Funcionarios;
 
 
 /**
@@ -57,6 +58,14 @@ public class Ws {
         Dao dao = f.criaDao();
         Produtos p = new Produtos();
         return g.toJson(p);
+    }
+    
+    @WebMethod(operationName = "listarFuncionarios")
+    public String listarFuncionarios() {
+        Fabrica f = Fabrica.make(Tipo.funcionario);
+        Dao dao = f.criaDao();
+        Funcionarios func = new Funcionarios();
+        return g.toJson(func);
     }
     /**
      * Operação de Ws service

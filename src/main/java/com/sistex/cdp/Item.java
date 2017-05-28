@@ -33,4 +33,7 @@ public interface Item {
     public String getEmail();
     public void setEmail(String email);
     public String[] getAtributos();
+    public int getCodigo_funcionario();
+    public void setCodigo_funcionario(int codigo_funcionario);
+    public void setCodigo_funcionario(String codigo_funcionario);
 }

@@ -56,4 +56,19 @@ public class Funcionario extends ItemAbstract{
     public String toString(){
         return getCodigo()+" "+getNome()+" "+getMatricula()+" "+getCpf()+" "+getSenha();
     }
+
+    @Override
+    public int getCodigo_funcionario() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setCodigo_funcionario(int codigo_funcionario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setCodigo_funcionario(String codigo_funcionario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

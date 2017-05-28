@@ -35,25 +35,43 @@
 .titulo h2,h3{
   margin-right:50%;
 }
-
+td{
+    text-align: left;
+}
 
   /*--fim estilo da tabela---*/
-	.acesso1 p{
-		width:300px;
-		margin-left:30%;
-		background-color:rgb(180,180,180);
-	}
-	.titulo{
-		text-align: left;
-		margin-left:20%;
-	}
-	.acesso1 input{
-		width:100%;
-		color:black;
-	}
-	.campo2{
-		margin-left:30%;
-	}
+    .acesso1 p{
+            width:300px;
+            margin-left:30%;
+            background-color:rgb(180,180,180);
+    }
+    .titulo{
+            text-align: left;
+            margin-left:20%;
+    }
+    .acesso1 input{
+            width:100%;
+            color:black;
+    }
+    .campo2{
+            margin-left:30%;
+    }
+    .prato{
+        width: 200px;
+        height: 80px;
+    }
+    .produtos{
+        margin-top: 10%;
+    }
+    .botaopedido{
+        margin-top: 5%;
+    }
+    .oculto{
+        display: none;
+    }
+    figure{
+        display: inline-block;
+    }
   .selecao{
     width:100%;
     margin-right:10%;

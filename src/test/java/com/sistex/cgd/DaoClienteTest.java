@@ -5,16 +5,12 @@
  */
 package com.sistex.cgd;
 
+import com.sistex.cdp.Cliente;
 import com.sistex.cdp.Item;
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import padroes.Fabrica;
-import padroes.Tipo;
 import static padroes.Tipo.cliente;
 
 /**
@@ -25,30 +21,17 @@ public class DaoClienteTest {
     private final Fabrica f = Fabrica.make(cliente);
     private final Dao dao = f.criaDao();
     
-//    @Test
-//    public void cadastrarClientes(){
-//        boolean result=true;
-//        for(int posicao=0;posicao<10;posicao++){
-//            result= result && dao.cadastrar(f.criaObjeto());
-//        }
-//        assertTrue(result);
-//    }
+
     
     @Test
     public void testCadastrar() {
         System.out.println("cadastrar");
+        
         boolean result = dao.cadastrar(f.criaObjeto());
         assertTrue(result);
     }
 
-//    /**
-//     * Test of excluir method, of class DaoCliente.
-     
-    
 
-    /**
-     * Test of listar method, of class DaoCliente.
-     */
     @Test
     public void testListar() {
         System.out.println("listar");
@@ -56,39 +39,32 @@ public class DaoClienteTest {
         assertNotNull(result);
     }
 
-//    /**
-//     * Test of existe method, of class DaoCliente.
-//     */
+
     @Test
     public void testExiste_Item() {
         System.out.println("existe item objeto");
-        Dao instance = f.criaDao();
-        Item item = f.criaObjeto();
-        boolean result = instance.existe(item);
+        Item item =f.criaObjeto();
+        dao.cadastrar(item);
+        System.out.println(item.getCpf());
+        boolean result = dao.existe(item);
         assertTrue(result);
     }
     
-    
-////
-////    /**
-////     * Test of existe method, of class DaoCliente.
-////     */
+
     @Test
     public void testExiste_String() {
         System.out.println("existe");
-        String codigo = "";
-        Dao instance = f.criaDao();
-        assertTrue(instance.existe(codigo));
+        String codigo = "1";
+        assertTrue(dao.existe(codigo));
     }
-////    
-//    
-//    @Test
-//    public void testExcluir() {
-//        System.out.println("excluir");
-//        Item item = null;
-//        DaoCliente instance = new DaoCliente();
-//        boolean expResult = false;
-//        boolean result = instance.excluir(item);
-//        assertEquals(expResult, result);
-//    }
+
+    @Test
+    public void testExcluir() {
+        System.out.println("EXCLUSÃO");
+        Item item = f.criaObjeto();
+        item.setCpf("890");
+        dao.cadastrar(item);
+        boolean result = dao.excluir(item);
+        assertTrue(result);
+    }
 }

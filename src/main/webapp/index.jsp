@@ -29,17 +29,89 @@
                <a class="btn-close"><i class="fa fa-times"></i></a>
                <ul>
                     <li class="home"><a href="index.jsp">Home</a></li>
-                   <li class="acesso123"><a href="cadastroPedidos.jsp">Pedidos</a></li>
-                   <li class="sobre"><a href="cadastroProdutos.jsp">Produtos</a></li>
-                   <li class="contato"><a href="cadastroClientes.jsp">Clientes</a></li>
+                   <li class="acesso123"><a href="controlePedidos.jsp">Pedidos</a></li>
+                   <li class="sobre"><a href="controleProdutos.jsp">Produtos</a></li>
+                   <li class="contato"><a href="controleClientes.jsp">Clientes</a></li>
+                   <li class="contato"><a href="controleFuncionarios.jsp">Funcionários</a></li>
                </ul>
            </nav>
         </header>
 
         <!-- SERVICOS -->
+         
         <main class="imagem servicos container">
+         
+                <h1 class="bg-titulo">PRODUTOS</h1>
+                <form method="post" action="controlePedidos.jsp" onsubmit="mensagem();">
+                    <div class="produtos">
+                        
+                        <figure class="figure" >
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/prato.png" alt="..." class="img-thumbnail"></a> 
+                            <figcaption class="figure-caption"><input type="checkbox" value="1">Prato Personalizado</figcaption>
+                        </figure>
 
-            <img src="img/bemvindo.png" alt=""/>
+                        <figure class="figure" >
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/tropeiro.png" alt="..." class="img-thumbnail"></a> 
+                            <figcaption class="figure-caption"><input type="checkbox" value="2">Tropeiro</figcaption>
+                        </figure>
+
+                        <figure class="figure" >
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/espaguete.png" alt="..." class="img-thumbnail"></a> 
+                            <figcaption class="figure-caption"><input type="checkbox" value="3">Espaguete</figcaption>
+                        </figure>
+                        <figure class="figure" >
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/salada.png" alt="..." class="img-thumbnail"></a> 
+                            <figcaption class="figure-caption"><input type="checkbox" value="4">Espaguete</figcaption>
+                        </figure>
+                        
+                        <figure class="figure" >
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/refrigerante.png" alt="..." class="img-thumbnail"></a> 
+                            <figcaption class="figure-caption"><input type="checkbox" value="4">Coca Cola</figcaption>
+                        </figure>
+                        
+                        <figure class="figure" >
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/fanta.png" alt="..." class="img-thumbnail"></a> 
+                            <figcaption class="figure-caption"><input type="checkbox" value="4">Coca Cola</figcaption>
+                        </figure>
+                        
+                        <figure class="figure" >
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/cocazero.png" alt="..." class="img-thumbnail"></a> 
+                            <figcaption class="figure-caption"><input type="checkbox" value="4">Coca Cola</figcaption>
+                        </figure>
+                        
+                        <figure class="figure" >
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/prato1.png" alt="..." class="img-thumbnail"></a> 
+                            <figcaption class="figure-caption"><input type="checkbox" value="4">Coca Cola</figcaption>
+                        </figure>
+                        
+                        <figure class="figure" >
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/prato2.png" alt="..." class="img-thumbnail"></a> 
+                            <figcaption class="figure-caption"><input type="checkbox" value="4">Coca Cola</figcaption>
+                        </figure>
+                        
+                        <figure class="figure" >
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/cocazero.png" alt="..." class="img-thumbnail"></a> 
+                            <figcaption class="figure-caption"><input type="checkbox" value="4">Coca Cola</figcaption>
+                        </figure>
+                        
+                        <figure class="figure" >
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/prato1.png" alt="..." class="img-thumbnail"></a> 
+                            <figcaption class="figure-caption"><input type="checkbox" value="4">Coca Cola</figcaption>
+                        </figure>
+                        
+                        <figure class="figure" >
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/prato2.png" alt="..." class="img-thumbnail"></a> 
+                            <figcaption class="figure-caption"><input type="checkbox" value="4">Coca Cola</figcaption>
+                        </figure>
+                    </div>
+                    
+                        <input class="oculto" type="text" value="inicial"  name="tipo">
+                    
+                    <div class="newsletter container bg-grey botaopedido">
+                        <button type="submit" class="bg-white radius campo">Solicitar Pedido</button>
+                    </div>
+                    
+                </form>
         </main>
 
         <!-- RODAPÉ -->

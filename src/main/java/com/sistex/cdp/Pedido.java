@@ -73,4 +73,19 @@ public class Pedido extends ItemAbstract{
     public void setCodigo_produto(int codigo_produto) {
         this.codigo_produto = codigo_produto;
     }
+
+    @Override
+    public int getCodigo_funcionario() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setCodigo_funcionario(int codigo_funcionario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setCodigo_funcionario(String codigo_funcionario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

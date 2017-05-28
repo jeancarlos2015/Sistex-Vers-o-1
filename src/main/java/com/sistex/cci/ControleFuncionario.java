@@ -16,16 +16,15 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author jean
  */
-public class ControlePedido extends HttpServlet {
-
+public class ControleFuncionario extends HttpServlet{
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        out.println(request.getParameter("codigo_cliente"));
-        out.println(request.getParameter("codigo_produto"));
-        out.println(request.getParameter("descricao"));
-        out.println(request.getParameter("preco"));
+        out.println(request.getParameter("nome"));
+        out.println(request.getParameter("matricula"));
+        out.println(request.getParameter("cpf"));
+        out.println(request.getParameter("senha"));
         
     }
 }

@@ -17,7 +17,7 @@ import static padroes.Tipo.pedido;
 public class PersistenciaPedidoTest {
     
     private final Fabrica fabrica = Fabrica.make(pedido);
-
+    private final Persistencia conexao = fabrica.criaPersistencia();
     /**
      * Test of executar method, of class Persistencia.
      */
@@ -26,10 +26,8 @@ public class PersistenciaPedidoTest {
       
         System.out.println("INSERIR PEDIDO");
         String comando = "INSERT INTO PEDIDO(codigo_cliente, codigo_produto, descricao, preco) VALUES(1,1,'test',24.5)";
-        Persistencia instance = new Persistencia();
-        boolean expResult = true;
-        boolean result = instance.executar(comando);
-        assertEquals(expResult, result);
+        boolean result = conexao.executar(comando);
+        assertTrue(result);
     }
 
     /**
@@ -51,8 +49,7 @@ public class PersistenciaPedidoTest {
         testExecutar();
         System.out.println("DELETAR PEDIDO");
         String comando = "DELETE FROM PEDIDO where codigo="+1;
-        Persistencia instance = new Persistencia();
-        boolean result = instance.executar(comando);
+        boolean result = conexao.executar(comando);
         assertTrue(result);
     }
     

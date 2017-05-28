@@ -10,9 +10,9 @@ package com.sistex.cdp;
  * @author jean
  */
 public class Cliente extends ItemAbstract{
-    private int idade;
-    private String email;
-   
+    private int idade=0;
+    private String email="fulano@servidor.com";
+    private int codigo_funcionario=0;
 
     @Override
     public int getIdade() {
@@ -47,6 +47,27 @@ public class Cliente extends ItemAbstract{
     @Override
     public String toString(){
         return getCodigo()+" "+getNome()+" "+getIdade()+" "+getCpf()+" "+getEmail()+" "+getSenha();
+    }
+
+    /**
+     * @return the codigo_funcionario
+     */
+    @Override
+    public int getCodigo_funcionario() {
+        return codigo_funcionario;
+    }
+
+    /**
+     * @param codigo_funcionario the codigo_funcionario to set
+     */
+    @Override
+    public void setCodigo_funcionario(int codigo_funcionario) {
+        this.codigo_funcionario = codigo_funcionario;
+    }
+    
+    @Override
+    public void setCodigo_funcionario(String codigo_funcionario) {
+        this.codigo_funcionario = Integer.parseInt(codigo_funcionario.trim());
     }
         
 }
