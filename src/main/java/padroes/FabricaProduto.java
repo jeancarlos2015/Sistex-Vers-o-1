@@ -5,8 +5,8 @@
  */
 package padroes;
 
-import cgt.Api;
-import cgt.ProdutoApi;
+import com.sistex.cgt.Api;
+import com.sistex.cgt.ProdutoApi;
 import com.sistex.cci.ControleProduto;
 import com.sistex.cdp.Item;
 import com.sistex.cdp.Produto;

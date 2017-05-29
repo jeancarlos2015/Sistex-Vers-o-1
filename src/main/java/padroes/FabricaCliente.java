@@ -5,8 +5,8 @@
  */
 package padroes;
 
-import cgt.Api;
-import cgt.ClienteApi;
+import com.sistex.cgt.Api;
+import com.sistex.cgt.ClienteApi;
 import com.sistex.cci.ControleCliente;
 import com.sistex.cdp.Cliente;
 import com.sistex.cdp.Item;

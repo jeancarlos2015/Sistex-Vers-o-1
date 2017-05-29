@@ -10,7 +10,7 @@ package com.sistex.cdp;
  * @author jean
  */
 public abstract class ItemAbstract implements Item{
-    private String nome, cpf, senha, descricao;
+    protected String nome, cpf, senha, descricao;
     private float preco;
     private int codigo, quantidade;
     
@@ -23,7 +23,10 @@ public abstract class ItemAbstract implements Item{
         codigo = 0;
         quantidade=0;
     }
-    
+    @Override
+    public void setPreco(String preco){
+        this.preco = Float.parseFloat(preco);
+    }
     @Override
     public String getNome() {
         return nome;
@@ -105,7 +108,9 @@ public abstract class ItemAbstract implements Item{
         this.quantidade = quantidade;
     }
     
-    
+    public void setQuantidade(String quantidade) {
+        this.quantidade = Integer.parseInt(quantidade);
+    }
     public void setMarca(String marca){};
     @Override
     public String getMarca(){return null;}
@@ -126,4 +131,13 @@ public abstract class ItemAbstract implements Item{
     
     @Override
     public String[] getAtributos(){return null;}
+    
+     @Override
+    public int getCodigo_funcionario() {return 0;}
+
+    @Override
+    public void setCodigo_funcionario(int codigo_funcionario) {}
+
+    @Override
+    public void setCodigo_funcionario(String codigo_funcionario) {}
 }

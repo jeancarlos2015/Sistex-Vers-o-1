@@ -42,11 +42,10 @@
         <section class="newsletter container bg-grey">
             <h1 class="bg-titulo">CADASTRO DE FUNCIONÁRIOS</h1>
             <form method="post" action="Controlador" onsubmit="mensagem();">
-                <input class="bg-white radius campo" type="text"  name="nome" placeholder="Nome do Cliente" required>
+                <input class="bg-white radius campo" type="text"  name="nome" placeholder="Nome do Funcionario" required>
                 <input class="bg-white radius campo" type="text"  name="matricula" placeholder="Matrícula" required>
-                <input class="bg-white radius campo" type="text"  name="cpf" placeholder="CPF do cli ente" required>
-                <input class="bg-white radius campo" type="text"  name="email" placeholder="Email do cliente" required>
-                <input class="bg-white radius campo" type="password"  name="senha" placeholder="Senha do cliente" required>
+                <input class="bg-white radius campo" type="text"  name="cpf" placeholder="CPF do funcionario" required>
+                <input class="bg-white radius campo" type="password"  name="senha" placeholder="Senha do funcionario" required>
                 <input class="oculto" type="text" value="funcionario"  name="tipo">
                 <input class="oculto" type="text" value="cadastro"  name="operacao">
                 <button type="submit" class="bg-white radius campo"> Cadastrar Funcionario </button>

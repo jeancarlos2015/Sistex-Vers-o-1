@@ -5,8 +5,8 @@
  */
 package padroes;
 
-import cgt.Api;
-import cgt.PedidoApi;
+import com.sistex.cgt.Api;
+import com.sistex.cgt.PedidoApi;
 import com.sistex.cci.ControlePedido;
 import com.sistex.cdp.Item;
 import com.sistex.cdp.Pedido;

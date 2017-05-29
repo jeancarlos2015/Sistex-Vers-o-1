@@ -5,7 +5,7 @@
  */
 package padroes;
 
-import cgt.Api;
+import com.sistex.cgt.Api;
 import com.sistex.cci.Controlador;
 import com.sistex.cdp.Item;
 import com.sistex.cgd.Dao;

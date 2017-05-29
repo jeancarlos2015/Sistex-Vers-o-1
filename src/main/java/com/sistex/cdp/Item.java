@@ -18,6 +18,7 @@ public interface Item {
     public void setDescricao(String descricao);
     public float getPreco();
     public void setPreco(float preco);
+    public void setPreco(String preco);
     public int getCodigo();
     public void setCodigo(int codigo);
     public void setCodigo(String codigo);

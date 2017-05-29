@@ -59,7 +59,9 @@ public class Pedido extends ItemAbstract{
     public void setCodigo_cliente(int codigo_cliente) {
         this.codigo_cliente = codigo_cliente;
     }
-
+    public void setCodigo_cliente(String codigo_cliente) {
+        this.codigo_cliente = Integer.parseInt(codigo_cliente);
+    }
     /**
      * @return the codigo_produto
      */
@@ -73,7 +75,9 @@ public class Pedido extends ItemAbstract{
     public void setCodigo_produto(int codigo_produto) {
         this.codigo_produto = codigo_produto;
     }
-
+    public void setCodigo_produto(String codigo_produto) {
+        this.codigo_produto = Integer.parseInt(codigo_produto);
+    }
     @Override
     public int getCodigo_funcionario() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

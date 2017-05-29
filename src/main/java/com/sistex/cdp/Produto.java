@@ -31,19 +31,34 @@ public class Produto extends ItemAbstract{
     public String toString(){
         return getCodigo()+" "+getNome()+" "+getDescricao()+" "+getPreco()+" "+getMarca()+" "+getQuantidade();
     }
-
-    @Override
-    public int getCodigo_funcionario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public String getTipo(){
+        if(nome.contains("salada")){
+            return "salada";
+        }
+        else if(nome.contains("tropeiro")){
+            return "tropeiro";
+        }
+        else if(nome.contains("macarrao")){
+            return "espaguete";
+        }
+        else if(nome.contains("frango")){
+            return "prato1";
+        }
+        else if(nome.contains("bife")){
+            return "prato2";
+        }
+        else if(nome.contains("coca cola")){
+            return "cocazero";
+        }
+        else if(nome.contains("refrigerante")){
+            return "refrigerante";
+        }
+        else{
+            return "cs";
+        }
     }
-
-    @Override
-    public void setCodigo_funcionario(int codigo_funcionario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setCodigo_funcionario(String codigo_funcionario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
+    
+     
 }

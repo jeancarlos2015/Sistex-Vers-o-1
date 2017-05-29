@@ -3,18 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cgt;
+package com.sistex.cgt;
 
 import com.sistex.cdp.Item;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *
  * @author jean
  */
 public interface Api {
-    public void cadastrar(Item item);
-    public void excluir(Item item);
+    public void setRequest(HttpServletRequest request);
+    public Item getItem();
+    public void cadastrar();
+    public void excluir();
     public List<Item> listar();
-    public List<Item> listarVinculados(Item item);
+    public List<Item> listarVinculados();
 }

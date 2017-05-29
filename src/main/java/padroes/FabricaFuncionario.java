@@ -5,8 +5,8 @@
  */
 package padroes;
 
-import cgt.Api;
-import cgt.FuncionarioApi;
+import com.sistex.cgt.Api;
+import com.sistex.cgt.FuncionarioApi;
 import com.sistex.cci.ControleCliente;
 import com.sistex.cci.ControleFuncionario;
 import com.sistex.cdp.Funcionario;
