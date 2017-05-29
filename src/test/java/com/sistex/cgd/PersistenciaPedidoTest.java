@@ -38,11 +38,38 @@ public class PersistenciaPedidoTest {
       testExecutar();
       System.out.println("LISTAR PEDIDOS");
       Persistencia p = fabrica.criaPersistencia();
-      String vetor[] = p.getValores("SELECT *FROM PEDIDO", fabrica.criaObjeto());
+      String vetor[] = p.getValores("SELECT *FROM PEDIDO").split(";");
+      for(String str:vetor){
+          System.out.println(str);
+      }
       assertNotNull(vetor);
     }
-   
-    
+    @Test
+    public void testInserirPedido() {
+        System.out.println("INSERIR PEDIDO");
+        Persistencia p = fabrica.criaPersistencia();
+        String comando = "INSERT INTO PEDIDO(codigo_cliente, codigo_produto, descricao, preco) VALUES(1,1,'Teste',10.5)";
+        boolean result = p.executar(comando);
+        assertTrue(result);
+    }
+     @Test
+    public void testPedidoExiste(){
+        
+        Persistencia p = fabrica.criaPersistencia();
+        System.out.println("EXISTE Funcionario");
+        
+        String comando = "INSERT INTO PEDIDO(codigo_cliente,codigo_produto, descricao,preco) VALUES(1,1,'teste',20.0)";
+        p.executar(comando);
+        String info[] = p.getValores("SELECT codigo FROM pedido WHERE codigo=1 or codigo_cliente=1").split(";");
+        boolean result=false;
+        for(String str:info){
+            System.out.println(str);
+            if(str.equals("1")){
+                result=true;
+            }
+        }
+        assertNotNull(info);
+    }
 
     @Test
     public void testDeleteFuncionarios(){

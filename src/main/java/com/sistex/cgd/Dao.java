@@ -19,4 +19,6 @@ public interface Dao {
     public List<Item> listarVinculo(Item item);
     public boolean existe(Item item);
     public boolean existe(String cpf);
+    public Item getItem(int codigo);
+    public Item getItem(String cpf);
 }

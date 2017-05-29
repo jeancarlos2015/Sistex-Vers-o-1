@@ -39,19 +39,31 @@ public class PersistenciaProdutoTest {
       testExecutar();
       System.out.println("LISTAR PRODUTO");
       Persistencia p = fabrica.criaPersistencia();
-      String vetor[] = p.getValores("SELECT *FROM PRODUTO", fabrica.criaObjeto());
+      String vetor[] = p.getValores("SELECT *FROM PRODUTO").split(";");
+      for(String str:vetor){
+          System.out.println(str);
+      }
       assertNotNull(vetor);
     }
    
-    
+    @Test
+    public void testInserirProduto() {
+        System.out.println("INSERIR PRODUTO");
+        String comando = "INSERT INTO PRODUTO(nome, descricao, preco, marca, quantidade, tipo) VALUES('Feijao Tropeiro','Tropeiro',12.4,'sistex',10,'tropeiro')";
+        Persistencia p = fabrica.criaPersistencia();
+        boolean result = p.executar(comando);
+        assertTrue(result);
+    }
     
 
     
     @Test
     public void testDeleteFuncionarios(){
         System.out.println("DELETAR PRODUTO");
-        String comando = "DELETE FROM PRODUTO WHERE codigo="+1;
+        String comando1 = "INSERT INTO PRODUTO(nome, descricao, preco, marca, quantidade, tipo) VALUES('teste','Tropeiro',12.4,'sistex',10,'tropeiro')";
+        String comando = "DELETE FROM PRODUTO WHERE nome='teste'";
         Persistencia instance = fabrica.criaPersistencia();
+        instance.executar(comando1);
         boolean result = instance.executar(comando);
         assertTrue(result);
     }

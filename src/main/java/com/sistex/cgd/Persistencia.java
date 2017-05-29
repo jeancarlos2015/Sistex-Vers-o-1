@@ -145,7 +145,7 @@ public class Persistencia {
             int index=0;
             while(rs.next()){
                 if(itens.size()==1){
-                    result+=rs.getString(itens.get(0));
+                    result+=rs.getString(itens.get(0))+";";
                 }else{
                     for(index=0;index<itens.size()-1;index++){
                         result +=rs.getString(itens.get(index))+",";
@@ -158,6 +158,7 @@ public class Persistencia {
             con.close();
             return result;
         } catch (SQLException |ArrayIndexOutOfBoundsException | ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
               return null;
         }
        

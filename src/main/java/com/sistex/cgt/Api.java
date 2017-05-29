@@ -18,6 +18,7 @@ public interface Api {
     public Item getItem();
     public void cadastrar();
     public void excluir();
+    public boolean existe(Item item);
     public List<Item> listar();
     public List<Item> listarVinculados();
 }

@@ -30,7 +30,10 @@ public abstract class  ApiAbstract implements Api{
         Item item = getItem();
         dao.cadastrar(item);
     }
-
+    @Override
+    public boolean existe(Item item){
+        return dao.existe(item.getCpf());
+    }
     @Override
     public void excluir() {
         Item item = getItem();

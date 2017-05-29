@@ -34,44 +34,54 @@ public class PersistenciaClienteTest {
    
     
     @Test
-    public void testExecutar() {
+    public void testInserirCliente() {
         System.out.println("INSERIR CLIENTE");
         String comando = "INSERT INTO CLIENTE(codigo_funcionario, nome, idade, cpf, email, senha) VALUES(1,'Fulano',24,'12312312','fulano@gmail.com','1234')";
         boolean result = persistencia.executar(comando);
         assertTrue(result);
     }
     
-    
- @Test
-    public void testArrayClientes() {
-      testExecutar();
-      System.out.println("LISTAR CLIENTES");
-      String vetor[] = persistencia.getValores("SELECT *FROM CLIENTE").split(";");
-      assertNotNull(vetor);
+    @Test
+    public void testInserirFuncionario() {
+        System.out.println("INSERIR FUNCIONARIO");
+        String comando = "INSERT INTO FUNCIONARIO(nome, matricula, cpf, senha) VALUES('Fulano','12341','12312','1234')";
+        boolean result = persistencia.executar(comando);
+        assertTrue(result);
     }
     
+   
+    
     @Test
-    public void testArrayClientes1() {
-      testExecutar();
+    public void testListarClientes() {
+      testInserirCliente();
       System.out.println("LISTAR CLIENTES");
       String info = persistencia.getValores("SELECT *from CLIENTE");
       String vetor[] = info.split(";");
       assertNotNull(vetor);
     }
     
-     @Test
-    public void testExiste(){
+    @Test
+    public void testClientExiste(){
         System.out.println("EXISTE CLIENTE");
         String comando = "INSERT INTO CLIENTE(codigo_funcionario, nome, idade, cpf, email, senha) VALUES(1,'Fulano',24,'12312312','fulano@gmail.com','1234')";
         persistencia.executar(comando);
-        String info = persistencia.getValores("SELECT cpf FROM cliente WHERE cpf='12312312'");
-        assertEquals(info,"12312312");
+        String[] info = persistencia.getValores("SELECT cpf FROM cliente WHERE cpf='12312312'").split(";");
+        boolean achou=false;
+        for(String str:info){
+            if(str.equals("12312312")){
+                achou=true;
+            }
+        }
+        assertTrue(achou);
     }
+   
     
     @Test
-    public void testDeleteFuncionarios(){
-        System.out.println("DELETAR FUNCIONARIO");
-        String comando = "Delete from cliente";
+    public void testDeleteCliente(){
+        System.out.println("DELETAR CLIENTE");
+        String comando1 = "INSERT INTO CLIENTE(codigo_funcionario, nome, idade, cpf, email, senha) VALUES(1,'Fulano',24,'123123','fulano@gmail.com','1234')";
+        persistencia.executar(comando1);
+        String comando = "Delete from cliente WHERE cpf='123123'";
         boolean result = persistencia.executar(comando);
         assertTrue(result);
     }

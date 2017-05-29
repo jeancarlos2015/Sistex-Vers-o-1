@@ -47,7 +47,6 @@ public class ControleCliente extends HttpServlet{
             }
         } 
     }
-    
     public void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException{
         if(request.getParameter("operacao").equals("exclusao")){
             Item item = fabrica.criaObjeto();
@@ -58,6 +57,17 @@ public class ControleCliente extends HttpServlet{
             }else{
                 InteracaoHumana.imprime(response,"");
             }
+        } 
+    }
+    public void autentica(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        if(request.getParameter("operacao").equals("autenticacao")){
+            Item item = fabrica.criaObjeto();
+            api = fabrica.criaApi();
+            item.setCpf(request.getParameter("cpf"));
+            if(api.existe(item)){
+                InteracaoHumana.imprime(response, "Usuario existe!!!");
+            }
+            
         } 
     }
     

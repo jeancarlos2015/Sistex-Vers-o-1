@@ -29,6 +29,7 @@
                <a class="btn-close"><i class="fa fa-times"></i></a>
                <ul>
                     <li class="home"><a href="index.jsp">Home</a></li>
+                    <li class="home"><a href="acesso.jsp">Acesso</a></li>
                    <li class="acesso123"><a href="controlePedidos.jsp">Pedidos</a></li>
                    <li class="sobre"><a href="controleProdutos.jsp">Produtos</a></li>
                    <li class="contato"><a href="controleClientes.jsp">Clientes</a></li>
@@ -105,8 +106,7 @@
                         </figure>
                     </div>
                     
-<!--                        <input class="oculto" type="text" value="inicial"  name="tipo">
-                    
+<!--                      
                     <div class="newsletter container bg-grey botaopedido">
                         <button type="submit" class="bg-white radius campo">Solicitar Pedido</button>
                     </div>

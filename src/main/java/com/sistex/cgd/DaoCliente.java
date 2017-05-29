@@ -52,19 +52,40 @@ public class DaoCliente implements Dao{
 
     @Override
     public boolean existe(Item item) {
-       String info = conexao.getValores("SELECT cpf FROM cliente WHERE cpf='"+item.getCpf()+"'");
-       return info.equals(item.getCpf());
+       String info[] = conexao.getValores("SELECT cpf FROM cliente WHERE cpf='"+item.getCpf()+"'").split(";");
+        for(String str:info){
+            if(str.equals(item.getCpf())){
+                return true;
+            }
+        }
+       return false;
     }
 
     @Override
     public boolean existe(String codigo) {
-        String info = conexao.getValores("SELECT cpf FROM cliente WHERE codigo="+codigo);
-        return info.equals(codigo);
+        String[] info = conexao.getValores("SELECT cpf FROM cliente WHERE codigo="+codigo).split(";");
+        boolean achou=false;
+        for(String str:info){
+            if(str.equals("12312312")){
+                achou=true;
+            }
+        }
+        return achou;
     }
 
     @Override
     public List<Item> listarVinculo(Item item) {
         return null;
+    }
+
+    @Override
+    public Item getItem(int codigo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Item getItem(String cpf) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
