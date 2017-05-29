@@ -105,12 +105,12 @@
                         </figure>
                     </div>
                     
-                        <input class="oculto" type="text" value="inicial"  name="tipo">
+<!--                        <input class="oculto" type="text" value="inicial"  name="tipo">
                     
                     <div class="newsletter container bg-grey botaopedido">
                         <button type="submit" class="bg-white radius campo">Solicitar Pedido</button>
                     </div>
-                    
+                    -->
                 </form>
         </main>
 
