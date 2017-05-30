@@ -5,7 +5,6 @@
  */
 package com.sistex.cci;
 
-import com.sistex.cgt.Api;
 import com.sistex.cdp.Cliente;
 import com.sistex.cdp.Item;
 import com.sistex.cih.InteracaoHumana;
@@ -17,15 +16,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import padroes.Fabrica;
 import padroes.Tipo;
+import com.sistex.cgt.InterfaceControlar;
 
 /**
  *
  * @author jean
  */
-public class ControleCliente extends HttpServlet{
+public class ControladorCliente extends HttpServlet{
 
     private final Fabrica fabrica = Fabrica.make(Tipo.cliente);
-    private Api api;
+    private InterfaceControlar api;
     
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)

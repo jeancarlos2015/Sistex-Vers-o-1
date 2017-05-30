@@ -6,9 +6,7 @@
 package com.sistex.cgt;
 
 import com.sistex.cdp.Item;
-import com.sistex.cgd.Dao;
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
 import padroes.Fabrica;
 import static padroes.Tipo.cliente;
 
@@ -16,9 +14,9 @@ import static padroes.Tipo.cliente;
  *
  * @author jean
  */
-public class ClienteApi extends ApiAbstract{
+public class ControlarClientes extends Controlar{
 
-    public ClienteApi() {
+    public ControlarClientes() {
         super(Fabrica.make(cliente));
     }
     
@@ -34,6 +32,10 @@ public class ClienteApi extends ApiAbstract{
         item.setSenha(request.getParameter("senha"));
         return item;
     }
+
+ 
+    
+
     
     
 }

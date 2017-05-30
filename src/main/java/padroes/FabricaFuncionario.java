@@ -5,16 +5,16 @@
  */
 package padroes;
 
-import com.sistex.cgt.Api;
-import com.sistex.cgt.FuncionarioApi;
-import com.sistex.cci.ControleCliente;
-import com.sistex.cci.ControleFuncionario;
+import com.sistex.cgt.ControlarFuncionarios;
+import com.sistex.cci.ControladorCliente;
+import com.sistex.cci.ControladorFuncionario;
 import com.sistex.cdp.Funcionario;
 import com.sistex.cdp.Item;
 import com.sistex.cgd.DaoFuncionario;
 import com.sistex.cgd.Dao;
 import com.sistex.cgd.Persistencia;
 import javax.servlet.http.HttpServlet;
+import com.sistex.cgt.InterfaceControlar;
 
 /**
  *
@@ -31,8 +31,8 @@ public class FabricaFuncionario extends Fabrica{
     public Persistencia criaPersistencia(){return new Persistencia();}
     
     @Override
-    public HttpServlet criaControle(){return new ControleFuncionario();}
+    public HttpServlet criaControle(){return new ControladorFuncionario();}
     
     @Override
-    public Api criaApi(){return new FuncionarioApi();}
+    public InterfaceControlar criaApi(){return new ControlarFuncionarios();}
 }

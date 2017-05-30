@@ -7,6 +7,7 @@ package com.sistex.cgt;
 
 import com.sistex.cdp.Item;
 import com.sistex.cdp.Produto;
+import java.util.List;
 import padroes.Fabrica;
 import static padroes.Tipo.produto;
 
@@ -14,9 +15,9 @@ import static padroes.Tipo.produto;
  *
  * @author jean
  */
-public class ProdutoApi extends ApiAbstract{
+public class ControlarProdutos extends Controlar{
 
-    public ProdutoApi() {
+    public ControlarProdutos() {
         super(Fabrica.make(produto));
     }
 
@@ -32,6 +33,19 @@ public class ProdutoApi extends ApiAbstract{
         
         return item;
     }
+
+    @Override
+    public boolean solicitarPedido() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Item> monitorarPedidos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
+
     
     
 }

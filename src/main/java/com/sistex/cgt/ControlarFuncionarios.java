@@ -6,6 +6,7 @@
 package com.sistex.cgt;
 
 import com.sistex.cdp.Item;
+import java.util.List;
 import padroes.Fabrica;
 import static padroes.Tipo.funcionario;
 
@@ -13,9 +14,9 @@ import static padroes.Tipo.funcionario;
  *
  * @author jean
  */
-public class FuncionarioApi extends ApiAbstract{
+public class ControlarFuncionarios extends Controlar{
 
-    public FuncionarioApi() {
+    public ControlarFuncionarios() {
         super(Fabrica.make(funcionario));
     }
 
@@ -28,8 +29,18 @@ public class FuncionarioApi extends ApiAbstract{
         item.setSenha(request.getParameter("senha"));
         return item;
     }
-    
-    
+
+    @Override
+    public boolean solicitarPedido() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Item> monitorarPedidos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+  
     
     
 }

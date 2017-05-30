@@ -32,10 +32,6 @@
                <ul>
                   <li class="home"><a href="index.jsp">Home</a></li>
                   <li class="home"><a href="acesso.jsp">Acesso</a></li>
-                   <li class="acesso123"><a href="controlePedidos.jsp">Pedidos</a></li>
-                   <li class="sobre"><a href="controleProdutos.jsp">Produtos</a></li>
-                   <li class="contato"><a href="controleClientes.jsp">Clientes</a></li>
-                   <li class="contato"><a href="controleFuncionarios.jsp">Funcionários</a></li>
                </ul>
            </nav>
         </header>

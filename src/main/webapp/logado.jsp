@@ -39,65 +39,65 @@
         <main class="imagem servicos container">
          
                 <h1 class="bg-titulo">PRODUTOS</h1>
-                <form method="post" action="acesso.jsp" onsubmit="mensagem();">
+                <form method="post" action="controlePedidos.jsp" onsubmit="mensagem();">
                     <div class="produtos">
                         
                         <figure class="figure" >
-                            <a href="acesso.jsp"><img class="prato" src="img/prato.png" alt="..." class="img-thumbnail"></a> 
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/prato.png" alt="..." class="img-thumbnail"></a> 
                             <figcaption class="figure-caption">Prato Personalizado</figcaption>
                         </figure>
 
                         <figure class="figure" >
-                            <a href="acesso.jsp"><img class="prato" src="img/tropeiro.png" alt="..." class="img-thumbnail"></a> 
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/tropeiro.png" alt="..." class="img-thumbnail"></a> 
                             <figcaption class="figure-caption">Tropeiro</figcaption>
                         </figure>
 
                         <figure class="figure" >
-                            <a href="acesso.jsp"><img class="prato" src="img/espaguete.png" alt="..." class="img-thumbnail"></a> 
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/espaguete.png" alt="..." class="img-thumbnail"></a> 
                             <figcaption class="figure-caption">Espaguete</figcaption>
                         </figure>
                         <figure class="figure" >
-                            <a href="acesso.jsp"><img class="prato" src="img/salada.png" alt="..." class="img-thumbnail"></a> 
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/salada.png" alt="..." class="img-thumbnail"></a> 
                             <figcaption class="figure-caption">Espaguete</figcaption>
                         </figure>
                         
                         <figure class="figure" >
-                            <a href="acesso.jsp"><img class="prato" src="img/refrigerante.png" alt="..." class="img-thumbnail"></a> 
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/refrigerante.png" alt="..." class="img-thumbnail"></a> 
                             <figcaption class="figure-caption">Coca Cola</figcaption>
                         </figure>
                         
                         <figure class="figure" >
-                            <a href="acesso.jsp"><img class="prato" src="img/fanta.png" alt="..." class="img-thumbnail"></a> 
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/fanta.png" alt="..." class="img-thumbnail"></a> 
                             <figcaption class="figure-caption">Coca Cola</figcaption>
                         </figure>
                         
                         <figure class="figure" >
-                            <a href="acesso.jsp"><img class="prato" src="img/cocazero.png" alt="..." class="img-thumbnail"></a> 
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/cocazero.png" alt="..." class="img-thumbnail"></a> 
                             <figcaption class="figure-caption">Coca Cola</figcaption>
                         </figure>
                         
                         <figure class="figure" >
-                            <a href="acesso.jsp"><img class="prato" src="img/prato1.png" alt="..." class="img-thumbnail"></a> 
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/prato1.png" alt="..." class="img-thumbnail"></a> 
                             <figcaption class="figure-caption">Coca Cola</figcaption>
                         </figure>
                         
                         <figure class="figure" >
-                            <a href="acesso.jsp"><img class="prato" src="img/prato2.png" alt="..." class="img-thumbnail"></a> 
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/prato2.png" alt="..." class="img-thumbnail"></a> 
                             <figcaption class="figure-caption">Coca Cola</figcaption>
                         </figure>
                         
                         <figure class="figure" >
-                            <a href="acesso.jsp"><img class="prato" src="img/cocazero.png" alt="..." class="img-thumbnail"></a> 
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/cocazero.png" alt="..." class="img-thumbnail"></a> 
                             <figcaption class="figure-caption">Coca Cola</figcaption>
                         </figure>
                         
                         <figure class="figure" >
-                            <a href="acesso.jsp"><img class="prato" src="img/prato1.png" alt="..." class="img-thumbnail"></a> 
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/prato1.png" alt="..." class="img-thumbnail"></a> 
                             <figcaption class="figure-caption">Coca Cola</figcaption>
                         </figure>
                         
                         <figure class="figure" >
-                            <a href="acesso.jsp"><img class="prato" src="img/prato2.png" alt="..." class="img-thumbnail"></a> 
+                            <a href="controlePedidos.jsp"><img class="prato" src="img/prato2.png" alt="..." class="img-thumbnail"></a> 
                             <figcaption class="figure-caption">Coca Cola</figcaption>
                         </figure>
                     </div>

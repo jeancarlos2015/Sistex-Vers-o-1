@@ -45,10 +45,9 @@ public class Controlador extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            fabrica = getFabrica(request);
-            controle = fabrica.criaControle();
-            controle.service(request, response);
-        
+        fabrica = getFabrica(request);
+        controle = fabrica.criaControle();
+        controle.service(request, response);
     }
  
     

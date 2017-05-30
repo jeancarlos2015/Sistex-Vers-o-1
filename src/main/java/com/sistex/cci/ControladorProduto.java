@@ -6,7 +6,6 @@
 package com.sistex.cci;
 
 import com.sistex.cdp.Item;
-import com.sistex.cgt.Api;
 import com.sistex.cih.InteracaoHumana;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -16,15 +15,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import padroes.Fabrica;
 import padroes.Tipo;
+import com.sistex.cgt.InterfaceControlar;
 
 /**
  *
  * @author jean
  */
 @WebServlet(name = "CadastroProduto", urlPatterns = {"/CadastroProduto"})
-public class ControleProduto extends HttpServlet {
+public class ControladorProduto extends HttpServlet {
     private final Fabrica fabrica = Fabrica.make(Tipo.produto);
-    private Api api;
+    private InterfaceControlar api;
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

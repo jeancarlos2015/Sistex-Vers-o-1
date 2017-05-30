@@ -15,12 +15,12 @@ import padroes.Fabrica;
  *
  * @author jean
  */
-public abstract class  ApiAbstract implements Api{
+public abstract class  Controlar implements InterfaceControlar{
     protected final  Dao dao;
     protected final Fabrica fabrica;
     protected HttpServletRequest request;
     
-    public ApiAbstract(Fabrica f){
+    public Controlar(Fabrica f){
         dao = f.criaDao();
         fabrica = f;
     }
@@ -30,16 +30,13 @@ public abstract class  ApiAbstract implements Api{
         Item item = getItem();
         dao.cadastrar(item);
     }
-    @Override
-    public boolean existe(Item item){
-        return dao.existe(item.getCpf());
-    }
+    
     @Override
     public void excluir() {
         Item item = getItem();
         dao.excluir(item);
     }
-
+    
     @Override
     public List<Item> listar() {
         return dao.listar();
@@ -50,12 +47,24 @@ public abstract class  ApiAbstract implements Api{
         Item item = getItem();
         return dao.listarVinculo(item);
     }
-
+    
+    @Override
+    public boolean existe(Item item){
+        return dao.existe(item.getCpf());
+    }
+   
     @Override
     public void setRequest(HttpServletRequest request) {
         this.request = request;
     }
 
     
+    
+    @Override
+    public boolean solicitarPedido() {return false;}
+
+    @Override
+    public List<Item> monitorarPedidos() {return null;}
+
     
 }

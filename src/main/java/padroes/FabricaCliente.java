@@ -5,9 +5,8 @@
  */
 package padroes;
 
-import com.sistex.cgt.Api;
-import com.sistex.cgt.ClienteApi;
-import com.sistex.cci.ControleCliente;
+import com.sistex.cgt.ControlarClientes;
+import com.sistex.cci.ControladorCliente;
 import com.sistex.cdp.Cliente;
 import com.sistex.cdp.Item;
 import com.sistex.cgd.Dao;
@@ -15,6 +14,7 @@ import com.sistex.cgd.DaoCliente;
 import com.sistex.cgd.Persistencia;
 import javax.persistence.Persistence;
 import javax.servlet.http.HttpServlet;
+import com.sistex.cgt.InterfaceControlar;
 
 /**
  *
@@ -31,8 +31,8 @@ public class FabricaCliente extends Fabrica{
     public Persistencia criaPersistencia(){return new Persistencia();}
     
     @Override
-    public HttpServlet criaControle(){return new ControleCliente();}
+    public HttpServlet criaControle(){return new ControladorCliente();}
     
     @Override
-    public Api criaApi(){return new ClienteApi();}
+    public InterfaceControlar criaApi(){return new ControlarClientes();}
 }

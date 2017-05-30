@@ -5,12 +5,12 @@
  */
 package padroes;
 
-import com.sistex.cgt.Api;
 import com.sistex.cci.Controlador;
 import com.sistex.cdp.Item;
 import com.sistex.cgd.Dao;
 import com.sistex.cgd.Persistencia;
 import javax.servlet.http.HttpServlet;
+import com.sistex.cgt.InterfaceControlar;
 
 /**
  *
@@ -34,7 +34,7 @@ public class Fabrica {
     
     public Item criaObjeto(){return null;}
     public Dao criaDao(){return null;}
-    public Persistencia criaPersistencia(){return null;}
+    public Persistencia criaPersistencia(){return new Persistencia();}
     public HttpServlet criaControle(){return new Controlador();}
-    public Api criaApi(){return null;}
+    public InterfaceControlar criaApi(){return null;}
 }
