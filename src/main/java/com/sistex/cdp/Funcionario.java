@@ -20,6 +20,7 @@ public class Funcionario extends ItemAbstract{
     
     public Funcionario(){
         clientes = new ArrayList();
+        codigo=1;
     }
     
     public void cadastrar(Cliente c){

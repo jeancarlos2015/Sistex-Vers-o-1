@@ -21,7 +21,9 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import padroes.Fabrica;
 import padroes.Tipo;
+import static padroes.Tipo.cliente;
 import static padroes.Tipo.pedido;
+import static padroes.Tipo.produto;
 import util.Funcionarios;
 
 
@@ -34,7 +36,6 @@ public class Ws {
     private Gson g = new Gson();
     private Pedidos pedidos;
     private Clientes clientes;
-    private Produtos produtos;
     private Funcionarios funcionarios;
     /**
      * Operação de Ws service
@@ -51,7 +52,7 @@ public class Ws {
     
     @WebMethod(operationName = "listarClientes")
     public String listarClientes() {
-        Fabrica f = Fabrica.make(Tipo.cliente);
+        Fabrica f = Fabrica.make(cliente);
         Dao dao = f.criaDao();
         clientes = new Clientes();
         clientes.setClientes(dao.listar());
@@ -60,7 +61,7 @@ public class Ws {
     
     @WebMethod(operationName = "listarProdutos")
     public String listarProdutos() {
-        Fabrica f = Fabrica.make(Tipo.produto);
+        Fabrica f = Fabrica.make(produto);
         Dao dao = f.criaDao();
         Produtos p = new Produtos();
         p.setProdutos(dao.listar());
@@ -82,7 +83,7 @@ public class Ws {
      */
     @WebMethod(operationName = "getPedido")
     public String getPedido(@WebParam(name = "codigo") int codigo) {
-        Fabrica f = Fabrica.make(Tipo.pedido);
+        Fabrica f = Fabrica.make(pedido);
         Dao dao = f.criaDao();
         Pedido pedido = (Pedido) dao.getItem(0);
         return g.toJson(pedido);
@@ -90,7 +91,7 @@ public class Ws {
 
     @WebMethod(operationName = "getCliente")
     public String getCliente(@WebParam(name = "codigo") int codigo) {
-        Fabrica f = Fabrica.make(Tipo.cliente);
+        Fabrica f = Fabrica.make(cliente);
         Dao dao = f.criaDao();
         Cliente item = (Cliente) dao.getItem(0);
         return g.toJson(item);
@@ -98,7 +99,7 @@ public class Ws {
     
     @WebMethod(operationName = "getProduto")
     public String getProduto(@WebParam(name = "codigo") int codigo) {
-        Fabrica f = Fabrica.make(Tipo.produto);
+        Fabrica f = Fabrica.make(produto);
         Dao dao = f.criaDao();
         Produto p = (Produto) dao.getItem(0);
         return g.toJson(p);

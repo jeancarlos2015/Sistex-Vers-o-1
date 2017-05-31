@@ -15,6 +15,7 @@ import java.util.List;
 public interface Dao {
     public boolean cadastrar(Item item);
     public boolean excluir(Item item);
+    public boolean excluirAll();
     public List<Item> listar();
     public List<Item> listarVinculo(Item item);
     public boolean existe(Item item);

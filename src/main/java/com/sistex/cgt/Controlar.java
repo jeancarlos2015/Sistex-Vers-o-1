@@ -38,27 +38,28 @@ public abstract class  Controlar implements InterfaceControlar{
     }
     
     @Override
-    public List<Item> listar() {
-        return dao.listar();
-    }
-
-    @Override
     public List<Item> listarVinculados() {
         Item item = getItem();
         return dao.listarVinculo(item);
     }
     
     @Override
-    public boolean existe(Item item){
-        return dao.existe(item.getCpf());
-    }
-   
-    @Override
-    public void setRequest(HttpServletRequest request) {
-        this.request = request;
-    }
+    public List<Item> listar() {return dao.listar();}
 
+    @Override
+    public boolean existe(Item item){return dao.existe(item);}
     
+    @Override
+    public void setRequest(HttpServletRequest request) {this.request = request;}
+    
+    @Override
+    public boolean excluirAll(){return dao.excluirAll();}
+    
+    @Override
+    public boolean cadastrar(Item item){return dao.cadastrar(item);}
+    
+    @Override
+    public boolean excluir(Item item){return dao.excluir(item);}
     
     @Override
     public boolean solicitarPedido() {return false;}

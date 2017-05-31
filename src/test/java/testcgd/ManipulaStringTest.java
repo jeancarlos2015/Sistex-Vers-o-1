@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sistex.cgd;
+package testcgd;
 
 import java.util.ArrayList;
 import java.util.Arrays;

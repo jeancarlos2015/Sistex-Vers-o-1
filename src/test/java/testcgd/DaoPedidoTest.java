@@ -3,23 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sistex.cgd;
+package testcgd;
 
 import com.sistex.cdp.Item;
+import com.sistex.cdp.Pedido;
+import com.sistex.cgd.Dao;
 import java.util.List;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import padroes.Fabrica;
 import static padroes.Tipo.cliente;
-import static padroes.Tipo.produto;
+import static padroes.Tipo.pedido;
 
 /**
  *
  * @author jean
  */
-public class DaoProdutoTest {
-     private final Fabrica f = Fabrica.make(produto);
+public class DaoPedidoTest {
+     private final Fabrica f = Fabrica.make(pedido);
     private final Dao dao = f.criaDao();
     
 
@@ -27,7 +29,10 @@ public class DaoProdutoTest {
     @Test
     public void testCadastrar() {
         System.out.println("cadastrar");
-        boolean result = dao.cadastrar(f.criaObjeto());
+        Pedido item = (Pedido) f.criaObjeto();
+        item.setCodigo_cliente("1");
+        item.setCodigo_produto("1");
+        boolean result = dao.cadastrar(item);
         assertTrue(result);
     }
 
@@ -45,6 +50,7 @@ public class DaoProdutoTest {
         System.out.println("existe item objeto");
         Item item =f.criaObjeto();
         dao.cadastrar(item);
+        System.out.println(item.getCodigo());
         boolean result = dao.existe(item);
         assertTrue(result);
     }

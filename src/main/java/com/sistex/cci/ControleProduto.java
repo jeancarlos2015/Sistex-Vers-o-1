@@ -22,7 +22,7 @@ import com.sistex.cgt.InterfaceControlar;
  * @author jean
  */
 @WebServlet(name = "CadastroProduto", urlPatterns = {"/CadastroProduto"})
-public class ControladorProduto extends HttpServlet {
+public class ControleProduto extends HttpServlet {
     private final Fabrica fabrica = Fabrica.make(Tipo.produto);
     private InterfaceControlar api;
     @Override

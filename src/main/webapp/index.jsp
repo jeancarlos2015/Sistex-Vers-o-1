@@ -29,6 +29,7 @@
                <a class="btn-close"><i class="fa fa-times"></i></a>
                <ul>
                    <li class="home"><a href="index.jsp">Home</a></li>
+                   <li class="home"><a href="cadastroClientes.jsp">Cadastro De Cliente</a></li>
                    <li class="home"><a href="acesso.jsp">Acesso</a></li>
                </ul>
            </nav>

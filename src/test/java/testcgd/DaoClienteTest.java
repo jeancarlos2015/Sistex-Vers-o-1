@@ -3,24 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sistex.cgd;
+package testcgd;
 
+import com.sistex.cdp.Cliente;
 import com.sistex.cdp.Item;
-import com.sistex.cdp.Pedido;
+import com.sistex.cgd.Dao;
 import java.util.List;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 import org.junit.Test;
+import static org.junit.Assert.*;
 import padroes.Fabrica;
 import static padroes.Tipo.cliente;
-import static padroes.Tipo.pedido;
 
 /**
  *
  * @author jean
  */
-public class DaoPedidoTest {
-     private final Fabrica f = Fabrica.make(pedido);
+public class DaoClienteTest {
+    private final Fabrica f = Fabrica.make(cliente);
     private final Dao dao = f.criaDao();
     
 
@@ -28,10 +27,7 @@ public class DaoPedidoTest {
     @Test
     public void testCadastrar() {
         System.out.println("cadastrar");
-        Pedido item = (Pedido) f.criaObjeto();
-        item.setCodigo_cliente("1");
-        item.setCodigo_produto("1");
-        boolean result = dao.cadastrar(item);
+        boolean result = dao.cadastrar(f.criaObjeto());
         assertTrue(result);
     }
 
@@ -47,27 +43,34 @@ public class DaoPedidoTest {
     @Test
     public void testExiste_Item() {
         System.out.println("existe item objeto");
-        Item item =f.criaObjeto();
+        Item item = f.criaObjeto();
+        item.setCpf("789234");
+        item.setSenha("12345");
         dao.cadastrar(item);
-        System.out.println(item.getCodigo());
+        System.out.println(item.getCpf());
         boolean result = dao.existe(item);
         assertTrue(result);
     }
     
 
-    @Test
-    public void testExiste_String() {
-        System.out.println("existe");
-        String codigo = "1";
-        assertTrue(dao.existe(codigo));
-    }
+    
 
     @Test
     public void testExcluir() {
         System.out.println("EXCLUSÃO");
         Item item = f.criaObjeto();
+        item.setCpf("890");
         dao.cadastrar(item);
         boolean result = dao.excluir(item);
         assertTrue(result);
+    }
+    
+    @Test
+    public void testSenhaUsuario(){
+        Item item = f.criaObjeto();
+        item.setCpf("1234123478");
+        item.setSenha("123456789");
+        dao.cadastrar(item);
+        assertTrue(dao.existe(item));
     }
 }

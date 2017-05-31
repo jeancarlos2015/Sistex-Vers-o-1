@@ -52,7 +52,7 @@ public class Persistencia {
             return false;
         }
     }
-
+ 
     public  String[] getValores(String comando, Item item){
         try {
             Class.forName(driver);

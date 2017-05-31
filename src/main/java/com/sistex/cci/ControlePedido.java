@@ -21,7 +21,7 @@ import com.sistex.cgt.InterfaceControlar;
  *
  * @author jean
  */
-public class ControladorPedido extends HttpServlet {
+public class ControlePedido extends HttpServlet {
     private final Fabrica fabrica = Fabrica.make(Tipo.pedido);
     private InterfaceControlar api;
     @Override

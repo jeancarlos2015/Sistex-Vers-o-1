@@ -75,5 +75,10 @@ public class DaoFuncionario implements Dao {
     public Item getItem(String cpf) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public boolean excluirAll() {
+        return conexao.executar("Delete FROM FUNCIONARIO") && conexao.executar("ALTER SEQUENCE funcionario_codigo_seq RESTART WITH 2;");
+    }
     
 }

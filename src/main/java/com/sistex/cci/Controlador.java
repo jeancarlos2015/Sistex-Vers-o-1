@@ -27,8 +27,8 @@ public class Controlador extends HttpServlet {
     private Fabrica fabrica;
     private HttpServlet controle;
     
-    private Fabrica getFabrica(HttpServletRequest request){
-        switch(request.getParameter("tipo")){
+    private Fabrica getFabrica(String tipo){
+        switch(tipo){
                 case "pedido":
                     return Fabrica.make(pedido);
                 case "produto":
@@ -45,7 +45,7 @@ public class Controlador extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        fabrica = getFabrica(request);
+        fabrica = getFabrica(request.getParameter("tipo"));
         controle = fabrica.criaControle();
         controle.service(request, response);
     }

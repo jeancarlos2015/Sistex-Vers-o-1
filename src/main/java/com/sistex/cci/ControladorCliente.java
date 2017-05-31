@@ -33,6 +33,7 @@ public class ControladorCliente extends HttpServlet{
             cadastrar(request, response);
             excluir(request, response);
             listar(request, response);
+            autentica(request, response);
     }
 
     public void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException{
@@ -54,8 +55,9 @@ public class ControladorCliente extends HttpServlet{
                 api = fabrica.criaApi();
                 api.setRequest(request);
                 api.excluir();
+                InteracaoHumana.imprime(response,"Exclusão feita");
             }else{
-                InteracaoHumana.imprime(response,"");
+                InteracaoHumana.imprime(response,"Exclusão não foi feita");
             }
         } 
     }
@@ -64,8 +66,11 @@ public class ControladorCliente extends HttpServlet{
             Item item = fabrica.criaObjeto();
             api = fabrica.criaApi();
             item.setCpf(request.getParameter("cpf"));
+            item.setSenha(request.getParameter("senha"));
             if(api.existe(item)){
-                InteracaoHumana.imprime(response, "Usuario existe!!!");
+                InteracaoHumana.imprime(response, "Usuario autenticado!!!");
+            }else{
+                InteracaoHumana.imprime(response, "Usuario não autenticado!!!");
             }
             
         } 

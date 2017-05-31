@@ -12,7 +12,7 @@ package com.sistex.cdp;
 public abstract class ItemAbstract implements Item{
     protected String nome, cpf, senha, descricao;
     private float preco;
-    private int codigo, quantidade;
+    protected int codigo, quantidade;
     
     public ItemAbstract(){
         nome = "Fulano";

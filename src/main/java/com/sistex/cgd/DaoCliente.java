@@ -52,7 +52,7 @@ public class DaoCliente implements Dao{
 
     @Override
     public boolean existe(Item item) {
-       String info[] = conexao.getValores("SELECT cpf FROM cliente WHERE cpf='"+item.getCpf()+"'").split(";");
+       String info[] = conexao.getValores("SELECT cpf FROM cliente WHERE cpf='"+item.getCpf()+"' and senha='"+item.getSenha()+"'").split(";");
         for(String str:info){
             if(str.equals(item.getCpf())){
                 return true;
@@ -63,10 +63,10 @@ public class DaoCliente implements Dao{
 
     @Override
     public boolean existe(String codigo) {
-        String[] info = conexao.getValores("SELECT cpf FROM cliente WHERE codigo="+codigo).split(";");
+        String[] info = conexao.getValores("SELECT codigo FROM cliente WHERE codigo="+codigo).split(";");
         boolean achou=false;
         for(String str:info){
-            if(str.equals("12312312")){
+            if(str.equals(codigo)){
                 achou=true;
             }
         }
@@ -86,6 +86,11 @@ public class DaoCliente implements Dao{
     @Override
     public Item getItem(String cpf) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean excluirAll() {
+        return conexao.executar("Delete FROM CLIENTE") && conexao.executar("ALTER SEQUENCE cliente_codigo_seq RESTART WITH 1;");
     }
     
 }

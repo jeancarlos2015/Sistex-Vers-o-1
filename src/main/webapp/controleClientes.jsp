@@ -43,8 +43,6 @@
         <section class="newsletter container bg-grey">
             <h1 class="bg-titulo">CADASTRO DE CLIENTES</h1>
             <form method="post" action="Controlador" onsubmit="mensagem();">
-
-                <input class="bg-white radius campo" type="text"  name="codigo_funcionario" placeholder="Código do funcionário" required>
                 <input class="bg-white radius campo" type="text"  name="nome" placeholder="Nome do Cliente" required>
                 <input class="bg-white radius campo" type="text"  name="idade" placeholder="Idade do Cliente" required>
                 <input class="bg-white radius campo" type="text"  name="cpf" placeholder="CPF do cli ente" required>

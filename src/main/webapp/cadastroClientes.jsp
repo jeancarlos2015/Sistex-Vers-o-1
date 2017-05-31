@@ -13,7 +13,7 @@
     	<title> CADASTRO DE CLIENTES</title>
 <!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!--        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
         
         
     	<link rel="stylesheet" href="css/style.css">
@@ -38,13 +38,18 @@
         </header>
 <!-- Formulario de cadastro  -->
         <section class="newsletter container bg-grey">
-            <h1 class="bg-titulo">Acesso</h1>
-            <form method="post" action="Controlador">
-                <input class="bg-white radius campo" type="text"  name="cpf" placeholder="CPF do cliente" required>
+            <h1 class="bg-titulo">CADASTRO DE CLIENTES</h1>
+            <form method="post" action="Controlador" onsubmit="mensagem();">
+
+                <input class="oculto" type="text" value="1"  name="codigo_funcionario">
+                <input class="bg-white radius campo" type="text"  name="nome" placeholder="Nome do Cliente" required>
+                <input class="bg-white radius campo" type="text"  name="idade" placeholder="Idade do Cliente" required>
+                <input class="bg-white radius campo" type="text"  name="cpf" placeholder="CPF do cli ente" required>
+                <input class="bg-white radius campo" type="text"  name="email" placeholder="Email do cliente" required>
                 <input class="bg-white radius campo" type="password"  name="senha" placeholder="Senha do cliente" required>
                 <input class="oculto" type="text" value="cliente"  name="tipo">
-                <input class="oculto" type="text" value="autenticacao"  name="operacao">
-                <button type="submit" class="bg-white radius campo"> Entrar </button>
+                <input class="oculto" type="text" value="cadastro"  name="operacao">
+                <button type="submit" class="bg-white radius campo"> Cadastrar Cliente </button>
             </form>
         </section>
 

@@ -110,5 +110,10 @@ public class DaoPedido implements Dao{
         String info[] = p.getValores("SELECT codigo FROM pedido WHERE codigo="+codigo1+"").split(";");
         return info.length>0;
     }
+
+    @Override
+    public boolean excluirAll() {
+        return conexao.executar("Delete FROM PEDIDO") && conexao.executar("ALTER SEQUENCE pedido_codigo_seq RESTART WITH 1;");
+    }
     
 }

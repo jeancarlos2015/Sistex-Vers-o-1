@@ -6,7 +6,7 @@
 package padroes;
 
 import com.sistex.cgt.ControlarPedidos;
-import com.sistex.cci.ControladorPedido;
+import com.sistex.cci.ControlePedido;
 import com.sistex.cdp.Item;
 import com.sistex.cdp.Pedido;
 import com.sistex.cgd.Dao;
@@ -30,7 +30,7 @@ public class FabricaPedido extends Fabrica{
     public Persistencia criaPersistencia(){return new Persistencia();}
     
     @Override
-    public HttpServlet criaControle(){return new ControladorPedido();}
+    public HttpServlet criaControle(){return new ControlePedido();}
     
     @Override
     public InterfaceControlar criaApi(){return new ControlarPedidos();}

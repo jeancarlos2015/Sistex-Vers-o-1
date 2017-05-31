@@ -79,5 +79,10 @@ public class DaoProduto implements Dao{
     public Item getItem(String cpf) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public boolean excluirAll() {
+        return conexao.executar("Delete FROM PRODUTO") && conexao.executar("ALTER SEQUENCE produto_codigo_seq RESTART WITH 1;");
+    }
     
 }

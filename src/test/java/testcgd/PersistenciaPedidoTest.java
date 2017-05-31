@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sistex.cgd;
+package testcgd;
 
+import com.sistex.cgd.Persistencia;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import padroes.Fabrica;
