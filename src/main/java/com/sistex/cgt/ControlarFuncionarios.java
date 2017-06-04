@@ -5,7 +5,9 @@
  */
 package com.sistex.cgt;
 
+import com.sistex.cdp.Funcionario;
 import com.sistex.cdp.Item;
+import com.sistex.cdp.Produto;
 import java.util.List;
 import padroes.Fabrica;
 import static padroes.Tipo.funcionario;
@@ -22,7 +24,7 @@ public class ControlarFuncionarios extends Controlar{
 
     @Override
     public Item getItem() {
-        Item item = fabrica.criaObjeto();
+        Funcionario item = (Funcionario) fabrica.criaObjeto();
         item.setNome(request.getParameter("nome"));
         item.setMatricula(request.getParameter("matricula"));
         item.setCpf(request.getParameter("cpf"));

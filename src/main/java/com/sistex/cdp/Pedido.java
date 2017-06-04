@@ -13,12 +13,29 @@ import java.util.List;
  * @author jean
  */
 public class Pedido extends ItemAbstract{
-    private final List<Produto> produtos;
+    private final List<Produto> produtos = new ArrayList<>();
+    private final int codigo=0;
     private int codigo_cliente=0;
     private int codigo_produto=0;
-    public Pedido(){
-        produtos = new ArrayList<>();
+    private  String descricao="nenhum";
+    private  float preco=0;
+    
+    public Pedido() {
+        super("pedido");
     }
+    /**
+     * @param preco the preco to set
+     */
+    public void setPreco(float preco) {
+        this.preco = preco;
+    }
+    
+    public void setPreco(String preco){
+        this.preco = Float.parseFloat(preco);
+    }
+    
+    
+    
     
     public void cadastrar(Item item){
         Produto p = (Produto) item;
@@ -43,7 +60,7 @@ public class Pedido extends ItemAbstract{
     
     @Override
     public String toString(){
-        return getCodigo()+" "+getCodigo_cliente()+" "+getCodigo_produto()+""+getNome()+" "+getIdade()+" "+getCpf()+" "+getEmail()+" "+getSenha();
+        return codigo+" "+getCodigo_cliente()+" "+getCodigo_produto()+" "+ getDescricao()+" "+ getPreco();
     }
 
     /**
@@ -60,7 +77,7 @@ public class Pedido extends ItemAbstract{
         this.codigo_cliente = codigo_cliente;
     }
     public void setCodigo_cliente(String codigo_cliente) {
-        this.codigo_cliente = Integer.parseInt(codigo_cliente);
+        this.setCodigo_cliente(Integer.parseInt(codigo_cliente));
     }
     /**
      * @return the codigo_produto
@@ -76,20 +93,16 @@ public class Pedido extends ItemAbstract{
         this.codigo_produto = codigo_produto;
     }
     public void setCodigo_produto(String codigo_produto) {
-        this.codigo_produto = Integer.parseInt(codigo_produto);
-    }
-    @Override
-    public int getCodigo_funcionario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.setCodigo_produto(Integer.parseInt(codigo_produto));
     }
 
-    @Override
-    public void setCodigo_funcionario(int codigo_funcionario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  
 
-    @Override
-    public void setCodigo_funcionario(String codigo_funcionario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * @return the preco
+     */
+    public float getPreco() {
+        return preco;
     }
+    
 }

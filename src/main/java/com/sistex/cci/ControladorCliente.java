@@ -7,9 +7,7 @@ package com.sistex.cci;
 
 import com.sistex.cdp.Cliente;
 import com.sistex.cdp.Item;
-import com.sistex.cih.InteracaoHumana;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import padroes.Fabrica;
 import padroes.Tipo;
 import com.sistex.cgt.InterfaceControlar;
+import com.sistex.cih.TelaAbstract;
+import com.sistex.cih.TelaControleClientes;
+import com.sistex.cih.TelaControleProdutos;
 
 /**
  *
@@ -39,38 +40,33 @@ public class ControladorCliente extends HttpServlet{
     public void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException{
         if(request.getParameter("operacao").equals("cadastro")){
             Item item = fabrica.criaObjeto();
-            if(InteracaoHumana.valida(request, item.getAtributos())){
+            if(TelaAbstract.valida(request, item.getAtributos())){
                 api = fabrica.criaApi();
                 api.setRequest(request);
                 api.cadastrar();
-            }else{
-                InteracaoHumana.imprime(response,"Existe algum dado inválido no envio do formulario");
             }
         } 
     }
     public void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException{
         if(request.getParameter("operacao").equals("exclusao")){
             Item item = fabrica.criaObjeto();
-            if(InteracaoHumana.valida(request, item.getAtributos())){
+            if(TelaAbstract.valida(request, item.getAtributos())){
                 api = fabrica.criaApi();
                 api.setRequest(request);
                 api.excluir();
-                InteracaoHumana.imprime(response,"Exclusão feita");
-            }else{
-                InteracaoHumana.imprime(response,"Exclusão não foi feita");
+               // TelaAbstract.imprime(response,"Exclusão feita");
             }
         } 
     }
     public void autentica(HttpServletRequest request, HttpServletResponse response) throws IOException{
         if(request.getParameter("operacao").equals("autenticacao")){
-            Item item = fabrica.criaObjeto();
+            Cliente item = (Cliente)fabrica.criaObjeto();
             api = fabrica.criaApi();
             item.setCpf(request.getParameter("cpf"));
             item.setSenha(request.getParameter("senha"));
+            TelaAbstract tela = new TelaControleProdutos();
             if(api.existe(item)){
-                InteracaoHumana.imprime(response, "Usuario autenticado!!!");
-            }else{
-                InteracaoHumana.imprime(response, "Usuario não autenticado!!!");
+                tela.montapagina(response);
             }
             
         } 
@@ -79,15 +75,12 @@ public class ControladorCliente extends HttpServlet{
     public void listar(HttpServletRequest request, HttpServletResponse response) throws IOException{
         if(request.getParameter("operacao").equals("listar")){
             Item item = fabrica.criaObjeto();
-            if(InteracaoHumana.valida(request, item.getAtributos())){
+            if(TelaAbstract.valida(request, item.getAtributos())){
                 api = fabrica.criaApi();
                 api.setRequest(request);
                 for(Item it:api.listar()){
-                    InteracaoHumana.imprime(response, it.getEmail()+it.getNome()+" ");
+                    
                 }
-                
-            }else{
-                InteracaoHumana.imprime(response,"");
             }
         }
     }

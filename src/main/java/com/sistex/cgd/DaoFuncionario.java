@@ -35,7 +35,7 @@ public class DaoFuncionario implements Dao {
 
     @Override
     public List<Item> listar() {
-       String[] result = conexao.getValores("SELECT *FROM FUNCIONARIO", new Funcionario());
+       String[] result = conexao.getValores("SELECT *FROM FUNCIONARIO").split(";");
        List<Item> lista = new ArrayList<>();
        for(String linha:result){
            String[] campo = linha.split(",");

@@ -5,6 +5,7 @@
  */
 package testcgd;
 
+import com.sistex.cdp.Funcionario;
 import com.sistex.cdp.Item;
 import com.sistex.cgd.Dao;
 import java.util.List;
@@ -39,7 +40,7 @@ public class DaoFuncionarioTest {
         Dao instance = f.criaDao();
         boolean result=true;
         for(int i=0;i<10;i++){
-            Item item = f.criaObjeto();
+            Funcionario item = (Funcionario) f.criaObjeto();
             item.setCpf("1234"+i);
             result = result && instance.cadastrar(item);
         }

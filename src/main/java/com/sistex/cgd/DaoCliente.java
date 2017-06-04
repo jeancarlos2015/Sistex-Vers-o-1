@@ -28,13 +28,14 @@ public class DaoCliente implements Dao{
     }
 
     @Override
-    public boolean excluir(Item item) {
+    public boolean excluir(Item cliente) {
+        Cliente item = (Cliente) cliente;
         return conexao.executar("Delete FROM CLIENTE WHERE cpf='"+item.getCpf()+"'");
     }
 
     @Override
     public List listar() {
-        String[] result = conexao.getValores("SELECT *FROM CLIENTE", new Cliente());
+        String[] result = conexao.getValores("SELECT *FROM CLIENTE").split(";");
        List<Item> lista = new ArrayList<>();
        for(String linha:result){
            String[] campo = linha.split(",");
@@ -51,7 +52,8 @@ public class DaoCliente implements Dao{
     }
 
     @Override
-    public boolean existe(Item item) {
+    public boolean existe(Item cliente) {
+        Cliente item = (Cliente) cliente;
        String info[] = conexao.getValores("SELECT cpf FROM cliente WHERE cpf='"+item.getCpf()+"' and senha='"+item.getSenha()+"'").split(";");
         for(String str:info){
             if(str.equals(item.getCpf())){

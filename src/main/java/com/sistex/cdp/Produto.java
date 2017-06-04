@@ -10,18 +10,28 @@ package com.sistex.cdp;
  * @author jean
  */
 public class Produto extends ItemAbstract{
-    private String marca;
+    private String marca="nenhum";
+    private String nome="produto";
+    private float preco=0;
+    private int quantidade=0;
     
-    @Override
+    private String descricao="nenhum";
+    
+    public Produto() {
+        super("produto");
+    }
+    
+    
     public void setMarca(String marca) {
         this.marca = marca;
     }
 
-    @Override
+    
     public String getMarca() {
         return marca;
     }
-     @Override
+     
+    @Override
     public  String[] getAtributos(){
         String vetor[] = {"codigo","nome","descricao","preco","marca","quantidade"};
         return vetor;
@@ -29,36 +39,85 @@ public class Produto extends ItemAbstract{
     
     @Override
     public String toString(){
-        return getCodigo()+" "+getNome()+" "+getDescricao()+" "+getPreco()+" "+getMarca()+" "+getQuantidade();
+        return codigo+" "+nome+" "+descricao+" "+preco+" "+marca+" "+quantidade;
     }
     
+    @Override
     public String getTipo(){
-        if(nome.contains("salada")){
+        if(getNome().contains("salada")){
             return "salada";
         }
-        else if(nome.contains("tropeiro")){
+        else if(getNome().contains("tropeiro")){
             return "tropeiro";
         }
-        else if(nome.contains("macarrao")){
+        else if(getNome().contains("macarrao")){
             return "espaguete";
         }
-        else if(nome.contains("frango")){
+        else if(getNome().contains("frango")){
             return "prato1";
         }
-        else if(nome.contains("bife")){
+        else if(getNome().contains("bife")){
             return "prato2";
         }
-        else if(nome.contains("coca cola")){
+        else if(getNome().contains("coca cola")){
             return "cocazero";
         }
-        else if(nome.contains("refrigerante")){
+        else if(getNome().contains("refrigerante")){
             return "refrigerante";
         }
         else{
             return "cs";
         }
     }
-   
+
+    /**
+     * @return the nome
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
+     * @param nome the nome to set
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    /**
+     * @return the preco
+     */
+    public float getPreco() {
+        return preco;
+    }
+
+    /**
+     * @param preco the preco to set
+     */
+    public void setPreco(float preco) {
+        this.preco = preco;
+    }
     
-     
+    public void setPreco(String preco){
+        this.preco = Float.parseFloat(preco);
+    }
+
+    /**
+     * @return the quantidade
+     */
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    /**
+     * @param quantidade the quantidade to set
+     */
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+   
+    public void setQuantidade(String quantidade){
+        this.quantidade = Integer.parseInt(quantidade);
+    }
+
 }

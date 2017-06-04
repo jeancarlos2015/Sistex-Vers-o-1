@@ -37,6 +37,9 @@ public class DaoProdutoTest {
     public void testListar() {
         System.out.println("listar");
         List<Item> result = dao.listar();
+        for(Item item:result){
+            System.out.println(item.toString());
+        }
         assertNotNull(result);
     }
 

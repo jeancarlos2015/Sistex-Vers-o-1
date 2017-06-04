@@ -43,7 +43,7 @@ public class DaoClienteTest {
     @Test
     public void testExiste_Item() {
         System.out.println("existe item objeto");
-        Item item = f.criaObjeto();
+        Cliente item = (Cliente) f.criaObjeto();
         item.setCpf("789234");
         item.setSenha("12345");
         dao.cadastrar(item);
@@ -58,7 +58,7 @@ public class DaoClienteTest {
     @Test
     public void testExcluir() {
         System.out.println("EXCLUSÃO");
-        Item item = f.criaObjeto();
+        Cliente item = (Cliente) f.criaObjeto();
         item.setCpf("890");
         dao.cadastrar(item);
         boolean result = dao.excluir(item);
@@ -67,7 +67,7 @@ public class DaoClienteTest {
     
     @Test
     public void testSenhaUsuario(){
-        Item item = f.criaObjeto();
+        Cliente item = (Cliente) f.criaObjeto();
         item.setCpf("1234123478");
         item.setSenha("123456789");
         dao.cadastrar(item);

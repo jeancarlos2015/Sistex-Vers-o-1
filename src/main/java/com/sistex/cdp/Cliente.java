@@ -13,46 +13,53 @@ public class Cliente extends ItemAbstract{
     private int idade=0;
     private String email="fulano@servidor.com";
     private int codigo_funcionario=0;
-
-    @Override
+    private final String nome;
+    private String senha,cpf;
+    public Cliente() {
+        super("cliente");
+        this.nome = "fulano";
+    }
+    
     public int getIdade() {
         return idade;
     }
 
-    @Override
+    
     public void setIdade(int idade) {
         this.idade = idade;
     }
-    @Override
+    
     public void setIdade(String idade) {
-        this.idade = Integer.parseInt(idade.trim());
+        this.setIdade(Integer.parseInt(idade.trim()));
     }
     
-    @Override
+    
     public String getEmail() {
         return email;
     }
 
 
-    @Override
+    
     public void setEmail(String email) {
         this.email = email;
     }
+    
     @Override
     public  String[] getAtributos(){
         String vetor[] = {"codigo","codigo_funcionario","nome","idade","cpf","email","senha"};
         return vetor;
     }
     
+    
     @Override
     public String toString(){
-        return getCodigo()+" "+getNome()+" "+getIdade()+" "+getCpf()+" "+getEmail()+" "+getSenha();
+        return codigo+" "+getNome()+" "+getIdade()+" "+getCpf()+" "+getEmail()+" "+getSenha();
     }
 
     /**
      * @return the codigo_funcionario
      */
-    @Override
+    
     public int getCodigo_funcionario() {
         return codigo_funcionario;
     }
@@ -60,14 +67,53 @@ public class Cliente extends ItemAbstract{
     /**
      * @param codigo_funcionario the codigo_funcionario to set
      */
-    @Override
+    
     public void setCodigo_funcionario(int codigo_funcionario) {
         this.codigo_funcionario = codigo_funcionario;
     }
     
-    @Override
+    
     public void setCodigo_funcionario(String codigo_funcionario) {
-        this.codigo_funcionario = Integer.parseInt(codigo_funcionario.trim());
+        this.setCodigo_funcionario(Integer.parseInt(codigo_funcionario.trim()));
+    }
+
+    /**
+     * @return the nome
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
+     * @return the senha
+     */
+    public String getSenha() {
+        return senha;
+    }
+
+    /**
+     * @param senha the senha to set
+     */
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    /**
+     * @return the cpf
+     */
+    public String getCpf() {
+        return cpf;
+    }
+
+    /**
+     * @param cpf the cpf to set
+     */
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public void setNome(String parameter) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
         
 }

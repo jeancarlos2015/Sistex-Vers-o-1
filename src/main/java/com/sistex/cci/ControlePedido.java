@@ -6,7 +6,6 @@
 package com.sistex.cci;
 
 import com.sistex.cdp.Item;
-import com.sistex.cih.InteracaoHumana;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -16,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import padroes.Fabrica;
 import padroes.Tipo;
 import com.sistex.cgt.InterfaceControlar;
+import com.sistex.cih.TelaAbstract;
 
 /**
  *
@@ -35,12 +35,10 @@ public class ControlePedido extends HttpServlet {
     public void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException{
         if(request.getParameter("operacao").equals("cadastro")){
             Item item = fabrica.criaObjeto();
-            if(InteracaoHumana.valida(request, item.getAtributos())){
+            if(TelaAbstract.valida(request, item.getAtributos())){
                 api = fabrica.criaApi();
                 api.setRequest(request);
                 api.cadastrar();
-            }else{
-                InteracaoHumana.imprime(response,"");
             }
         } 
     }
@@ -48,12 +46,10 @@ public class ControlePedido extends HttpServlet {
     public void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException{
         if(request.getParameter("operacao").equals("exclusao")){
             Item item = fabrica.criaObjeto();
-            if(InteracaoHumana.valida(request, item.getAtributos())){
+            if(TelaAbstract.valida(request, item.getAtributos())){
                 api = fabrica.criaApi();
                 api.setRequest(request);
                 api.excluir();
-            }else{
-                InteracaoHumana.imprime(response,"");
             }
         } 
     }
@@ -61,12 +57,10 @@ public class ControlePedido extends HttpServlet {
     public void listar(HttpServletRequest request, HttpServletResponse response) throws IOException{
         if(request.getParameter("operacao").equals("listar")){
             Item item = fabrica.criaObjeto();
-            if(InteracaoHumana.valida(request, item.getAtributos())){
+            if(TelaAbstract.valida(request, item.getAtributos())){
                 api = fabrica.criaApi();
                 api.setRequest(request);
                 api.excluir();
-            }else{
-                InteracaoHumana.imprime(response,"");
             }
         }
     }

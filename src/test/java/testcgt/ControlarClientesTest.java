@@ -6,6 +6,7 @@
 package testcgt;
 
 import com.sistex.cci.Controlador;
+import com.sistex.cdp.Cliente;
 import com.sistex.cdp.Item;
 import com.sistex.cgt.InterfaceControlar;
 import org.junit.Test;
@@ -21,12 +22,12 @@ import static padroes.Tipo.cliente;
 public class ControlarClientesTest {
     private final Fabrica f = Fabrica.make(cliente);
     private InterfaceControlar c;
-    private Item item;
+    private Cliente item;
     
     @Test
     public void testExiste(){
         c = f.criaApi();
-        item = f.criaObjeto();
+        item = (Cliente) f.criaObjeto();
         item.setCpf("789234");
         item.setSenha("12345");
         c.cadastrar(item);
@@ -37,7 +38,7 @@ public class ControlarClientesTest {
     @Test
     public void testExcluir(){
         c = f.criaApi();
-        item = f.criaObjeto();
+        item = (Cliente) f.criaObjeto();
         item.setCpf("789234");
         item.setSenha("12345");
         c.cadastrar(item);
