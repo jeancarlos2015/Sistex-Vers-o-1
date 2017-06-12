@@ -6,6 +6,7 @@
 package com.sistex.cci;
 
 import com.sistex.cdp.Item;
+import com.sistex.cdp.Pedido;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -37,8 +38,10 @@ public class ControlePedido extends HttpServlet {
             Item item = fabrica.criaObjeto();
             if(TelaAbstract.valida(request, item.getAtributos())){
                 api = fabrica.criaApi();
-                api.setRequest(request);
-                api.cadastrar();
+                item = getItem(request);
+                if(api.cadastrar(item)){
+                    
+                }
             }
         } 
     }
@@ -48,8 +51,10 @@ public class ControlePedido extends HttpServlet {
             Item item = fabrica.criaObjeto();
             if(TelaAbstract.valida(request, item.getAtributos())){
                 api = fabrica.criaApi();
-                api.setRequest(request);
-                api.excluir();
+                item = getItem(request);
+                if(api.excluir(item)){
+                    
+                }
             }
         } 
     }
@@ -59,9 +64,18 @@ public class ControlePedido extends HttpServlet {
             Item item = fabrica.criaObjeto();
             if(TelaAbstract.valida(request, item.getAtributos())){
                 api = fabrica.criaApi();
-                api.setRequest(request);
-                api.excluir();
+                
             }
         }
+    }
+    
+    public Item getItem(HttpServletRequest request) {
+        Pedido item = (Pedido) fabrica.criaObjeto();
+        item.setCodigo_pedido(request.getParameter("codigo"));
+        //item.setCodigo_cliente(request.getParameter("codigo_cliente"));
+        item.setCodigo_produto(request.getParameter("codigo_produto"));
+        item.setDescricao(request.getParameter("descricao"));
+        item.setPreco(request.getParameter("preco"));
+        return item;
     }
 }

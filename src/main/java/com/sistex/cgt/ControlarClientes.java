@@ -5,9 +5,6 @@
  */
 package com.sistex.cgt;
 
-import com.sistex.cdp.Cliente;
-import com.sistex.cdp.Item;
-import java.util.List;
 import padroes.Fabrica;
 import static padroes.Tipo.cliente;
 
@@ -19,24 +16,5 @@ public class ControlarClientes extends Controlar{
 
     public ControlarClientes() {
         super(Fabrica.make(cliente));
-    }
-    
-    
-    @Override
-    public Item getItem() {
-        Cliente item = (Cliente) fabrica.criaObjeto();
-        item.setCodigo_funcionario(request.getParameter("codigo_funcionario"));
-        item.setNome(request.getParameter("nome"));
-        item.setIdade(request.getParameter("idade"));
-        item.setCpf(request.getParameter("cpf"));
-        item.setEmail(request.getParameter("email"));
-        item.setSenha(request.getParameter("senha"));
-        return item;
-    }
-
- 
-    
-
-    
-    
+    }    
 }

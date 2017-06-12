@@ -5,104 +5,99 @@
  */
 package com.sistex.cdp;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author jean
  */
 public class Pedido extends ItemAbstract{
-    private final List<Produto> produtos = new ArrayList<>();
-    private final int codigo=0;
-    private int codigo_cliente=0;
-    private int codigo_produto=0;
-    private  String descricao="nenhum";
-    private  float preco=0;
+    private Produto produto;
+    private String cpf_cliente="1";
+    private String codigo_produto="1";
+    private String codigo_pedido="1";
+    private  float preco_total=0;
     
     public Pedido() {
         super("pedido");
     }
     /**
-     * @param preco the preco to set
+     * @param preco_total the preco_total to set
      */
-    public void setPreco(float preco) {
-        this.preco = preco;
+    public void setPreco_total(float preco_total) {
+        this.preco_total = preco_total;
     }
     
     public void setPreco(String preco){
-        this.preco = Float.parseFloat(preco);
+        this.setPreco_total(Float.parseFloat(preco));
     }
     
-    
-    
-    
-    public void cadastrar(Item item){
-        Produto p = (Produto) item;
-        produtos.add(p);
-    }
-    
-    public void excluir(Item item){
-        Produto p = (Produto) item;
-        produtos.remove(p);
-    }
-    
-    public boolean existe(Item item){
-        Produto p = (Produto) item;
-        return produtos.contains(p);
-    }
    
    @Override
     public  String[] getAtributos(){
-        String vetor[] = {"codigo","codigo_cliente","codigo_produto","descricao","preco"};
+        String vetor[] = {"codigo_pedido","cpf","codigo_produto","descricao","preco_total"};
         return vetor;
     }
     
     @Override
     public String toString(){
-        return codigo+" "+getCodigo_cliente()+" "+getCodigo_produto()+" "+ getDescricao()+" "+ getPreco();
+        return getCodigo_pedido()+" "+getCpf_cliente()+" "+getCodigo_produto()+" "+ getDescricao()+" "+ getPreco_total();
     }
 
     /**
      * @return the codigo_cliente
      */
-    public int getCodigo_cliente() {
-        return codigo_cliente;
+    public String getCpf_cliente() {
+        return cpf_cliente;
     }
 
-    /**
-     * @param codigo_cliente the codigo_cliente to set
-     */
-    public void setCodigo_cliente(int codigo_cliente) {
-        this.codigo_cliente = codigo_cliente;
+    public void setCpf_cliente(String cpf_cliente) {
+        this.cpf_cliente = cpf_cliente;
     }
-    public void setCodigo_cliente(String codigo_cliente) {
-        this.setCodigo_cliente(Integer.parseInt(codigo_cliente));
-    }
-    /**
-     * @return the codigo_produto
-     */
-    public int getCodigo_produto() {
+    
+    
+   
+    public String getCodigo_produto() {
         return codigo_produto;
     }
 
-    /**
-     * @param codigo_produto the codigo_produto to set
-     */
-    public void setCodigo_produto(int codigo_produto) {
+   
+    public void setCodigo_produto(String codigo_produto) {
         this.codigo_produto = codigo_produto;
     }
-    public void setCodigo_produto(String codigo_produto) {
-        this.setCodigo_produto(Integer.parseInt(codigo_produto));
-    }
-
+   
   
 
+   
+    public float getPreco_total() {
+        return preco_total;
+    }
+
     /**
-     * @return the preco
+     * @return the codigo_pedido
      */
-    public float getPreco() {
-        return preco;
+    public String getCodigo_pedido() {
+        return codigo_pedido;
+    }
+
+    /**
+     * @param codigo_pedido the codigo_pedido to set
+     */
+    public void setCodigo_pedido(String codigo_pedido) {
+        this.codigo_pedido = codigo_pedido;
+    }
+
+    /**
+     * @return the produto
+     */
+    public Produto getProduto() {
+        return produto;
+    }
+
+    /**
+     * @param produto the produto to set
+     */
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
     
 }

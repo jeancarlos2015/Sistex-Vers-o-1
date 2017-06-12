@@ -5,6 +5,7 @@
  */
 package com.sistex.cci;
 
+import com.sistex.cdp.Funcionario;
 import com.sistex.cdp.Item;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,8 +39,9 @@ public class ControladorFuncionario extends HttpServlet{
             Item item = fabrica.criaObjeto();
             if(TelaAbstract.valida(request, item.getAtributos())){
                 api = fabrica.criaApi();
-                api.setRequest(request);
-                api.cadastrar();
+                if(api.cadastrar(getItem(request))){
+                    
+                }
             }
         } 
     }
@@ -49,8 +51,9 @@ public class ControladorFuncionario extends HttpServlet{
             Item item = fabrica.criaObjeto();
             if(TelaAbstract.valida(request, item.getAtributos())){
                 api = fabrica.criaApi();
-                api.setRequest(request);
-                api.excluir();
+                if(api.excluir(getItem(request))){
+                    
+                }
             }
         } 
     }
@@ -59,10 +62,18 @@ public class ControladorFuncionario extends HttpServlet{
         if(request.getParameter("operacao").equals("listar")){
             Item item = fabrica.criaObjeto();
             if(TelaAbstract.valida(request, item.getAtributos())){
-                api = fabrica.criaApi();
-                api.setRequest(request);
-                api.excluir();
+                
+                
             }
         }
+    }
+    
+    public Item getItem(HttpServletRequest request) {
+        Funcionario item = (Funcionario) fabrica.criaObjeto();
+        //item.setCodigo(request.getParameter("matricula"));
+        item.setNome(request.getParameter("rg"));
+        item.setMatricula(request.getParameter("nome"));
+        item.setSenha(request.getParameter("senha"));
+        return item;
     }
 }

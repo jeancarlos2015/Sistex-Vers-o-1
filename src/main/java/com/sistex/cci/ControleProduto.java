@@ -6,6 +6,7 @@
 package com.sistex.cci;
 
 import com.sistex.cdp.Item;
+import com.sistex.cdp.Produto;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,8 +39,10 @@ public class ControleProduto extends HttpServlet {
             Item item = fabrica.criaObjeto();
             if(TelaAbstract.valida(request, item.getAtributos())){
                 api = fabrica.criaApi();
-                api.setRequest(request);
-                api.cadastrar();
+                item = getItem(request);
+                if(api.cadastrar(item)){
+                    
+                }
             }
         } 
     }
@@ -49,8 +52,10 @@ public class ControleProduto extends HttpServlet {
             Item item = fabrica.criaObjeto();
             if(TelaAbstract.valida(request, item.getAtributos())){
                 api = fabrica.criaApi();
-                api.setRequest(request);
-                api.excluir();
+                item = getItem(request);
+                if(api.excluir(item)){
+                    
+                }
             }
         } 
     }
@@ -59,10 +64,23 @@ public class ControleProduto extends HttpServlet {
         if(request.getParameter("operacao").equals("listar")){
             Item item = fabrica.criaObjeto();
             if(TelaAbstract.valida(request, item.getAtributos())){
-                api = fabrica.criaApi();
-                api.setRequest(request);
-                api.excluir();
+                
+                
+                
             }
         }
+    }
+    
+    public Item getItem(HttpServletRequest request) {
+        Produto item = (Produto) fabrica.criaObjeto();
+        //item.setCodigo(request.getParameter("codigo"));
+        item.setNome(request.getParameter("nome"));
+        item.setDescricao(request.getParameter("descricao"));
+        item.setPreco(request.getParameter("preco"));
+        item.setMarca(request.getParameter("marca"));
+        item.setQuantidade(request.getParameter("quantidade"));
+        
+        
+        return item;
     }
 }

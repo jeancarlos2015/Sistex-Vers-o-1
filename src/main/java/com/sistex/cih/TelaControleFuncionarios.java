@@ -61,10 +61,6 @@ public class TelaControleFuncionarios extends TelaAbstract{
         pw.println("<ul>");
         pw.println("<li class='home'><a href='index.jsp'>Home</a></li>");
         pw.println("<li class='home'><a href='acesso.jsp'>Acesso</a></li>");
-        pw.println("<li class='acesso123'><a href='controlePedidos.jsp'>Pedidos</a></li>");
-        pw.println("<li class='sobre'><a href='controleProdutos.jsp'>Produtos</a></li>");
-        pw.println("<li class='contato'><a href='controleClientes.jsp'>Clientes</a></li>");
-        pw.println("<li class='contato'><a href='controleFuncionarios.jsp'>Funcionários</a></li>");
         pw.println("</ul>");
         pw.println("</nav>");
         pw.println("</header>");

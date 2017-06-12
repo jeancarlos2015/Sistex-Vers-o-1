@@ -23,13 +23,14 @@ public class DaoPedido implements Dao{
     @Override
     public boolean cadastrar(Item item) {
         Pedido p =(Pedido) item;
-        String comando = "INSERT INTO PEDIDO(codigo_cliente, codigo_produto, descricao, preco) VALUES("+p.getCodigo_cliente()+","+p.getCodigo_produto()+",'"+p.getDescricao()+"',"+p.getPreco()+")";
+        String comando = "INSERT INTO PEDIDO(codigo_pedido, cpf, codigo_produto, descricao, preco_total) VALUES("+p.getCodigo_pedido()+","+",'"+p.getDescricao()+"',"+p.getPreco_total()+")";
         return conexao.executar(comando);
     }
 
     @Override
     public boolean excluir(Item item) {
-        String comando = "DELETE FROM PEDIDO where codigo_cliente="+item.getCodigo()+" or codigo="+item.getCodigo();
+        Pedido p = (Pedido) item;
+        String comando = "DELETE FROM PEDIDO where codigo_cliente='"+p.getCpf_cliente()+"' or codigo_produto = '"+p.getCodigo_produto()+"'";
         return conexao.executar(comando);
     }
 
@@ -42,8 +43,8 @@ public class DaoPedido implements Dao{
         for(String pedido:vetor){
             String str[] = pedido.split(",");
             ped= new Pedido();
-            ped.setCodigo(str[0]);
-            ped.setCodigo_cliente(str[1]);
+            ped.setCodigo_pedido(str[0]);
+            //ped.setCodigo_cliente(str[1]);
             ped.setCodigo_produto(str[2]);
             ped.setDescricao(str[3]);
             ped.setPreco(str[4]);
@@ -56,7 +57,7 @@ public class DaoPedido implements Dao{
     public boolean existe(Item item) {
         Persistencia p = f.criaPersistencia();
         Pedido ped = (Pedido) item;
-        String info[] = p.getValores("SELECT codigo FROM pedido WHERE codigo="+ped.getCodigo()+" or codigo_cliente="+ped.getCodigo_cliente()+"").split(";");
+        String info[] = p.getValores("SELECT codigo FROM pedido WHERE codigo="+ped.getCodigo_pedido()+" or codigo_cliente="+"").split(";");
         return info.length>0;
     }
 
@@ -65,14 +66,14 @@ public class DaoPedido implements Dao{
     @Override
     public List<Item> listarVinculo(Item item) {
         Persistencia p = f.criaPersistencia();
-        String vetor[] = p.getValores("SELECT *FROM PEDIDO where codigo_cliente = "+item.getCodigo()).split(";");
+        String vetor[] = p.getValores("SELECT *FROM PEDIDO where codigo_cliente = ").split(";");
         Pedido ped;
         List<Item> list = new ArrayList<>();
         for(String pedido:vetor){
             String str[] = pedido.split(",");
             ped= new Pedido();
-            ped.setCodigo(str[0]);
-            ped.setCodigo_cliente(str[1]);
+            ped.setCodigo_pedido(str[0]);
+            //ped.setCodigo_cliente(str[1]);
             ped.setCodigo_produto(str[2]);
             ped.setDescricao(str[3]);
             ped.setPreco(str[4]);
@@ -89,8 +90,8 @@ public class DaoPedido implements Dao{
         for(String pedido:info){
             String str[] = pedido.split(",");
             ped= new Pedido();
-            ped.setCodigo(str[0]);
-            ped.setCodigo_cliente(str[1]);
+            ped.setCodigo_pedido(str[0]);
+            //ped.setCodigo_cliente(str[1]);
             ped.setCodigo_produto(str[2]);
             ped.setDescricao(str[3]);
             ped.setPreco(str[4]);

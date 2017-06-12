@@ -14,15 +14,14 @@ import java.util.List;
  */
 public class Funcionario extends ItemAbstract{
 
-    private String nome = "Ciclano";
-    private String senha = "123";
-    private String matricula = "1234";
-    private String cpf="12345678910";
-    private List<Cliente> clientes = new ArrayList<>();
+    private String matricula="123";
+    private String nome="fulano";
+    private String senha="senha";
+    private String rg="1.123.123";
+    private List<Cliente> clientes = new ArrayList();
 
     public Funcionario() {
         super("funcionario");
-        this.matricula = "1234";
     }
     
    
@@ -53,13 +52,13 @@ public class Funcionario extends ItemAbstract{
     
     @Override
     public  String[] getAtributos(){
-        String vetor[] = {"codigo","nome","matricula","cpf","senha"};
+        String vetor[] = {"matricula","rg","nome","senha"};
         return vetor;
     }
     
     @Override
     public String toString(){
-        return getCodigo()+" "+getNome()+" "+getMatricula()+" "+getCpf()+" "+getSenha();
+        return matricula+" "+nome+" "+rg+" "+senha;
     }
 
     /**
@@ -77,10 +76,10 @@ public class Funcionario extends ItemAbstract{
     }
 
     /**
-     * @return the cpf
+     * @return the rg
      */
-    public String getCpf() {
-        return cpf;
+    public String getRg() {
+        return rg;
     }
 
     /**
@@ -98,10 +97,10 @@ public class Funcionario extends ItemAbstract{
     }
 
     /**
-     * @param cpf the cpf to set
+     * @param rg the rg to set
      */
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setRg(String rg) {
+        this.rg = rg;
     }
 
     /**

@@ -27,7 +27,16 @@ public class DaoClienteTest {
     @Test
     public void testCadastrar() {
         System.out.println("cadastrar");
-        boolean result = dao.cadastrar(f.criaObjeto());
+        Cliente cliente = (Cliente) f.criaObjeto();
+        boolean result=false;
+        for(int i=2;i<1000;i++){
+            if(!dao.existe(""+i)){
+                //cliente.setCodigo(""+i);
+                result = dao.cadastrar(cliente);
+                break;
+            }
+        }
+        
         assertTrue(result);
     }
 
@@ -44,16 +53,14 @@ public class DaoClienteTest {
     public void testExiste_Item() {
         System.out.println("existe item objeto");
         Cliente item = (Cliente) f.criaObjeto();
-        item.setCpf("789234");
-        item.setSenha("12345");
-        dao.cadastrar(item);
-        System.out.println(item.getCpf());
+        //item.setCodigo("1");
+        item.setCpf("1234");
         boolean result = dao.existe(item);
         assertTrue(result);
     }
     
 
-    
+ 
 
     @Test
     public void testExcluir() {

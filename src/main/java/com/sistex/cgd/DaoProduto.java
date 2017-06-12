@@ -23,14 +23,14 @@ public class DaoProduto implements Dao{
     @Override
     public boolean cadastrar(Item item1) {
         Produto item = (Produto) item1;
-        String comando = "INSERT INTO PRODUTO(nome, descricao, preco, marca, quantidade) VALUES('"+item.getNome()+"','"+item.getDescricao()+"',"+item.getPreco()+",'"+item.getMarca()+"',"+item.getQuantidade()+")";
+        String comando = "INSERT INTO PRODUTO(codigo, nome, descricao, preco, marca, quantidade) VALUES("+",'"+item.getNome()+"','"+item.getDescricao()+"',"+item.getPreco()+",'"+item.getMarca()+"',"+item.getQuantidade()+")";
         Persistencia instance = f.criaPersistencia();
         return instance.executar(comando);
     }
 
     @Override
     public boolean excluir(Item item) {
-        String comando = "DELETE FROM PRODUTO WHERE codigo="+item.getCodigo();
+        String comando = "DELETE FROM PRODUTO WHERE codigo=";
         Persistencia instance = f.criaPersistencia();
         return instance.executar(comando);
     }
@@ -44,7 +44,7 @@ public class DaoProduto implements Dao{
         for(String str:vetor){
             String dado[] = str.split(",");
             prod = new Produto();
-            prod.setCodigo(dado[0]);
+//            prod.setCodigo(dado[0]);
             prod.setNome(dado[1]);
             prod.setDescricao(dado[2]);
             prod.setPreco(dado[3]);

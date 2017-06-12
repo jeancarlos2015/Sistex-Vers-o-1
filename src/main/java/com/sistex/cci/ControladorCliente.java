@@ -16,7 +16,6 @@ import padroes.Fabrica;
 import padroes.Tipo;
 import com.sistex.cgt.InterfaceControlar;
 import com.sistex.cih.TelaAbstract;
-import com.sistex.cih.TelaControleClientes;
 import com.sistex.cih.TelaControleProdutos;
 
 /**
@@ -37,28 +36,28 @@ public class ControladorCliente extends HttpServlet{
             autentica(request, response);
     }
 
-    public void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    private void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException{
         if(request.getParameter("operacao").equals("cadastro")){
             Item item = fabrica.criaObjeto();
             if(TelaAbstract.valida(request, item.getAtributos())){
                 api = fabrica.criaApi();
-                api.setRequest(request);
-                api.cadastrar();
+                item = getItem(request);
+                api.cadastrar(item);
             }
         } 
     }
-    public void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    private void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException{
         if(request.getParameter("operacao").equals("exclusao")){
             Item item = fabrica.criaObjeto();
             if(TelaAbstract.valida(request, item.getAtributos())){
                 api = fabrica.criaApi();
-                api.setRequest(request);
-                api.excluir();
-               // TelaAbstract.imprime(response,"Exclusão feita");
+                item = getItem(request);
+                api.cadastrar(item);
+                
             }
         } 
     }
-    public void autentica(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    private void autentica(HttpServletRequest request, HttpServletResponse response) throws IOException{
         if(request.getParameter("operacao").equals("autenticacao")){
             Cliente item = (Cliente)fabrica.criaObjeto();
             api = fabrica.criaApi();
@@ -72,16 +71,24 @@ public class ControladorCliente extends HttpServlet{
         } 
     }
     
-    public void listar(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    private void listar(HttpServletRequest request, HttpServletResponse response) throws IOException{
         if(request.getParameter("operacao").equals("listar")){
             Item item = fabrica.criaObjeto();
             if(TelaAbstract.valida(request, item.getAtributos())){
                 api = fabrica.criaApi();
-                api.setRequest(request);
-                for(Item it:api.listar()){
-                    
-                }
+               
             }
         }
+    }
+    
+    private Item getItem(HttpServletRequest request) {
+        Cliente item = (Cliente) fabrica.criaObjeto();
+        //item.setCodigo(request.getParameter("cpf"));
+        item.setMatricula(request.getParameter("matricula_funcionario"));
+        item.setNome(request.getParameter("nome"));
+        item.setIdade(request.getParameter("idade"));
+        item.setEmail(request.getParameter("email"));
+        item.setSenha(request.getParameter("senha"));
+        return item;
     }
 }

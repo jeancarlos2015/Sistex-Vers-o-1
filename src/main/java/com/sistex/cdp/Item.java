@@ -14,9 +14,6 @@ public interface Item {
     
     public void setDescricao(String descricao);
     public String getDescricao();
-    public int getCodigo();
-    public void setCodigo(int codigo);
-    public void setCodigo(String codigo);
     public String[] getAtributos();
     public String getTipo();
     

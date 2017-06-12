@@ -12,11 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import padroes.Fabrica;
-import static padroes.Tipo.cliente;
-import static padroes.Tipo.funcionario;
-import static padroes.Tipo.none;
-import static padroes.Tipo.pedido;
-import static padroes.Tipo.produto;
 
 /**
  *
@@ -26,26 +21,11 @@ import static padroes.Tipo.produto;
 public class Controlador extends HttpServlet {
     private Fabrica fabrica;
     private HttpServlet controle;
-    
-    private Fabrica getFabrica(String tipo){
-        switch(tipo){
-                case "pedido":
-                    return Fabrica.make(pedido);
-                case "produto":
-                    return Fabrica.make(produto);
-                case "cliente":
-                    return Fabrica.make(cliente);
-                case "funcionario":
-                    return Fabrica.make(funcionario);
-                default:
-                    return Fabrica.make(none);
-              
-        }
-    }
+   
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        fabrica = getFabrica(request.getParameter("tipo"));
+        fabrica = Fabrica.make(request.getParameter("tipo"));
         controle = fabrica.criaControle();
         controle.service(request, response);
     }

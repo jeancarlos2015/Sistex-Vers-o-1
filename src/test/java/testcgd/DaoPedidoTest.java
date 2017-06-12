@@ -30,7 +30,7 @@ public class DaoPedidoTest {
     public void testCadastrar() {
         System.out.println("cadastrar");
         Pedido item = (Pedido) f.criaObjeto();
-        item.setCodigo_cliente("1");
+       // item.setCodigo_cliente("1");
         item.setCodigo_produto("1");
         boolean result = dao.cadastrar(item);
         assertTrue(result);
@@ -50,7 +50,7 @@ public class DaoPedidoTest {
         System.out.println("existe item objeto");
         Item item =f.criaObjeto();
         dao.cadastrar(item);
-        System.out.println(item.getCodigo());
+       // System.out.println(item.getCodigo());
         boolean result = dao.existe(item);
         assertTrue(result);
     }

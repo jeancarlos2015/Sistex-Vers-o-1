@@ -21,28 +21,5 @@ public class ControlarFuncionarios extends Controlar{
     public ControlarFuncionarios() {
         super(Fabrica.make(funcionario));
     }
-
-    @Override
-    public Item getItem() {
-        Funcionario item = (Funcionario) fabrica.criaObjeto();
-        item.setNome(request.getParameter("nome"));
-        item.setMatricula(request.getParameter("matricula"));
-        item.setCpf(request.getParameter("cpf"));
-        item.setSenha(request.getParameter("senha"));
-        return item;
-    }
-
-    @Override
-    public boolean solicitarPedido() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Item> monitorarPedidos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-  
-    
     
 }

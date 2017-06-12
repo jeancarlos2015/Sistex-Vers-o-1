@@ -11,14 +11,15 @@ package com.sistex.cdp;
  */
 public abstract class ItemAbstract implements Item{
     protected String descricao;
-    protected int codigo;
     private String tipo;
+    
     public ItemAbstract(String tipo){
         this.tipo = tipo;
     }
     /**
      * @return the descricao
      */
+    @Override
     public String getDescricao() {
         return descricao;
     }
@@ -26,30 +27,17 @@ public abstract class ItemAbstract implements Item{
     /**
      * @param descricao the descricao to set
      */
+    @Override
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
     /**
+     * @param codigo
      * @return the codigo
      */
-    public int getCodigo() {
-        return codigo;
-    }
-
-    /**
-     * @param codigo the codigo to set
-     */
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-    public void setCodigo(String codigo){
-        this.codigo = Integer.parseInt(codigo);
-    }
-
-    /**
-     * @return the tipo
-     */
+   
+    @Override
     public String getTipo() {
         return tipo;
     }
@@ -61,6 +49,11 @@ public abstract class ItemAbstract implements Item{
         this.tipo = tipo;
     }
    
+    
+    
    
+    @Override
+    public String[] getAtributos(){return null;}
+    
    
 }

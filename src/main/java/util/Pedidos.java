@@ -16,7 +16,7 @@ import java.util.List;
  * @author jean
  */
 public class Pedidos {
-    private List<Pedido> pedidos = new ArrayList<Pedido>();
+    private List<Pedido> pedidos = new ArrayList<>();
 
     /**
      * @return the pedidos

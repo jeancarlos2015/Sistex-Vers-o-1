@@ -5,7 +5,6 @@
  */
 package com.sistex.cih;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -82,19 +81,19 @@ public abstract class TelaAbstract {
         pw.println("});");
         pw.println("</script>"); 
     }
-    public void criaItemMenu(PrintWriter pw,String classe, String url, String item){
+    protected void criaItemMenu(PrintWriter pw,String classe, String url, String item){
         pw.println("<li class='"+classe+"'><a href='"+url+"'>"+item+"</a></li>");
     }
-    public void criaCampo(PrintWriter pw, String nome, String placeholder){
+    protected void criaCampo(PrintWriter pw, String nome, String placeholder){
         pw.println("<input class='bg-white radius campo' type='text'  name='"+nome+"' placeholder='"+placeholder+"' required>");
     }
-    public void criaCampoSenha(PrintWriter pw, String nome, String placeholder){
+    protected void criaCampoSenha(PrintWriter pw, String nome, String placeholder){
         pw.println("<input class='bg-white radius campo' type='password'  name='"+nome+"' placeholder='"+placeholder+"' required>");
     }
-    public void criaCampoOculto(PrintWriter pw, String tipo, String value){
+    protected void criaCampoOculto(PrintWriter pw, String tipo, String value){
         pw.println("<input class='oculto' type='text' value='"+value+"'  name='"+tipo+"'>");
     }
-    public void criaBotao(PrintWriter pw, String descricao){
+    protected void criaBotao(PrintWriter pw, String descricao){
         pw.println("<button type='submit' class='bg-white radius campo'> "+descricao+"</button>");
     }
     
@@ -110,9 +109,7 @@ public abstract class TelaAbstract {
         return true;
     }
     
-    public void montapagina(HttpServletResponse response){
-        
-    }
+    public void montapagina(HttpServletResponse response){}
     
     public void montamenu(PrintWriter pw) {}
     public void montacampos(PrintWriter pw, String titulo){}

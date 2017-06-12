@@ -10,11 +10,12 @@ package com.sistex.cdp;
  * @author jean
  */
 public class Cliente extends ItemAbstract{
+    private String cpf="12312312312";
+    private String nome="fulano";
     private int idade=0;
-    private String email="fulano@servidor.com";
-    private int codigo_funcionario=0;
-    private final String nome;
-    private String senha,cpf;
+    private String email="fulano@servidor";
+    private String senha="senha";
+    private String matricula="123123";
     public Cliente() {
         super("cliente");
         this.nome = "fulano";
@@ -46,35 +47,20 @@ public class Cliente extends ItemAbstract{
     
     @Override
     public  String[] getAtributos(){
-        String vetor[] = {"codigo","codigo_funcionario","nome","idade","cpf","email","senha"};
+        String vetor[] = {"cpf","nome","idade","email","senha","matricula"};
         return vetor;
     }
     
     
     @Override
     public String toString(){
-        return codigo+" "+getNome()+" "+getIdade()+" "+getCpf()+" "+getEmail()+" "+getSenha();
+        return getCpf()+" "+getNome()+" "+getIdade()+" "+" "+getEmail()+" "+getSenha();
     }
 
-    /**
-     * @return the codigo_funcionario
-     */
-    
-    public int getCodigo_funcionario() {
-        return codigo_funcionario;
-    }
-
-    /**
-     * @param codigo_funcionario the codigo_funcionario to set
-     */
-    
-    public void setCodigo_funcionario(int codigo_funcionario) {
-        this.codigo_funcionario = codigo_funcionario;
-    }
     
     
-    public void setCodigo_funcionario(String codigo_funcionario) {
-        this.setCodigo_funcionario(Integer.parseInt(codigo_funcionario.trim()));
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     /**
@@ -113,7 +99,16 @@ public class Cliente extends ItemAbstract{
     }
 
     public void setNome(String parameter) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       this.nome = parameter;
     }
+
+    /**
+     * @return the matricula
+     */
+    public String getMatricula() {
+        return matricula;
+    }
+
+  
         
 }

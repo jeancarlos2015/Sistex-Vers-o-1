@@ -5,6 +5,7 @@
  */
 package testcgd;
 
+import com.sistex.cdp.Cliente;
 import com.sistex.cdp.Funcionario;
 import com.sistex.cdp.Item;
 import com.sistex.cgd.Dao;
@@ -30,31 +31,21 @@ public class DaoFuncionarioTest {
         System.out.println("PERSISTENCIA CADASTRAR");
         Item item = f.criaObjeto();
         Dao instance = f.criaDao();
-        boolean result = instance.cadastrar(item);
+//        item.setCodigo("1");
+        
+        boolean result=false;
+        for(int i=1;i<100;i++){
+           // item.setCodigo(i);
+            result = instance.cadastrar(item);
+            if(result){
+                break;
+            }
+        }
         assertTrue(result);
     }
     
-    @Test
-    public void cadastrarTodos(){
-        System.out.println("PERSISTENCIA CADASTRAR TODOS");
-        Dao instance = f.criaDao();
-        boolean result=true;
-        for(int i=0;i<10;i++){
-            Funcionario item = (Funcionario) f.criaObjeto();
-            item.setCpf("1234"+i);
-            result = result && instance.cadastrar(item);
-        }
-        
-        assertTrue(result);
-    }
-    @Test
-    public void testExiste_int() {
-        System.out.println("EXISTE CPF 1234");
-        String cpf ="1234";
-        Dao instance = f.criaDao();
-        boolean result = instance.existe(cpf);
-        assertTrue(result);
-    }
+
+   
     
     @Test
     public void testExiste_Item() {

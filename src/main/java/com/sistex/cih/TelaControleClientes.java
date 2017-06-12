@@ -26,8 +26,8 @@ public class TelaControleClientes extends TelaAbstract{
             pw = response.getWriter();
             pw.println(" <!DOCTYPE html>");
             pw.println(" <html lang='pt-br'>");
-            montahead(pw, "CONTROLE DE FUNCIONÁRIOS");
-            montabody(pw, "CONTROLE DE FUNCIONÁRIOS");
+            montahead(pw, "CONTROLE DE CLIENTES");
+            montabody(pw, "CONTROLE DE CLIENTES");
 
             pw.println("</html>");
         } catch (IOException ex) {

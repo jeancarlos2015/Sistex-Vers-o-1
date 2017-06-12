@@ -23,8 +23,8 @@ public class DaoCliente implements Dao{
     @Override
     public boolean cadastrar(Item cliente) {
         Cliente item = (Cliente) cliente;
-        return conexao.executar("INSERT INTO CLIENTE(codigo_funcionario, nome, idade, cpf, email, senha) " +
-        "VALUES("+item.getCodigo_funcionario()+",'"+item.getNome()+"',"+item.getIdade()+",'"+item.getCpf()+"','"+item.getEmail()+"','"+item.getSenha()+"')");
+        return conexao.executar("INSERT INTO CLIENTE(cpf, matricula_funcionario, nome, idade, email, senha) " +
+        "VALUES('"+item.getCpf()+"','"+item.getMatricula()+"','"+item.getNome()+"',"+item.getIdade()+"','"+item.getEmail()+"','"+item.getSenha()+"')");
     }
 
     @Override
@@ -40,11 +40,12 @@ public class DaoCliente implements Dao{
        for(String linha:result){
            String[] campo = linha.split(",");
            Cliente cliente = (Cliente) f.criaObjeto();
-           cliente.setCodigo(campo[0]);
-           cliente.setIdade(campo[1]);
-           cliente.setCpf(campo[2]);
-           cliente.setEmail(campo[3]);
-           cliente.setSenha(campo[4]);
+           cliente.setCpf(campo[0]);
+           cliente.setMatricula(campo[1]);
+           cliente.setNome(campo[2]);
+           cliente.setIdade(campo[3]);
+           cliente.setEmail(campo[4]);
+           cliente.setSenha(campo[5]);
            lista.add(cliente);
        }
        return lista;

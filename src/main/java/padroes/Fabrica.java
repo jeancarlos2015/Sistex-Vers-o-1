@@ -31,7 +31,20 @@ public class Fabrica {
                 return new Fabrica();
         }
     }
-    
+    public static Fabrica make(String tipo){
+        switch(tipo){
+            case "cliente":
+                return new FabricaCliente();
+            case "produto":
+                return new FabricaProduto();
+            case "pedido":
+                return new FabricaPedido();
+            case "funcionario":
+                return new FabricaFuncionario();
+            default:
+                return new Fabrica();
+        }
+    }
     public Item criaObjeto(){return null;}
     public Dao criaDao(){return null;}
     public Persistencia criaPersistencia(){return new Persistencia();}

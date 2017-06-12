@@ -20,32 +20,4 @@ public class ControlarProdutos extends Controlar{
     public ControlarProdutos() {
         super(Fabrica.make(produto));
     }
-
-    @Override
-    public Item getItem() {
-        Produto item = (Produto) fabrica.criaObjeto();
-        item.setNome(request.getParameter("nome"));
-        item.setDescricao(request.getParameter("descricao"));
-        item.setPreco(request.getParameter("preco"));
-        item.setMarca(request.getParameter("marca"));
-        item.setQuantidade(request.getParameter("quantidade"));
-        
-        
-        return item;
-    }
-
-    @Override
-    public boolean solicitarPedido() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Item> monitorarPedidos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-
-
-    
-    
 }

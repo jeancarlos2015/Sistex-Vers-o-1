@@ -5,6 +5,7 @@
  */
 package com.sistex.cgd;
 
+import com.sistex.cdp.Cliente;
 import com.sistex.cdp.Funcionario;
 import com.sistex.cdp.Item;
 import java.util.ArrayList;
@@ -24,13 +25,13 @@ public class DaoFuncionario implements Dao {
     @Override
     public boolean cadastrar(Item item) {
         Funcionario f = (Funcionario) item;
-        return conexao.executar("INSERT INTO FUNCIONARIO (nome, matricula,cpf,senha) VALUES('"+f.getNome()+"','"+f.getMatricula()+"','"+f.getCpf()+"','"+f.getSenha()+"')");
+        return conexao.executar("INSERT INTO FUNCIONARIO (matricula,rg, nome,senha) VALUES('"+f.getMatricula()+"','"+f.getRg()+"','"+f.getNome()+"','"+f.getSenha()+"')");
     }
 
     @Override
     public boolean excluir(Item item) {
         Funcionario f = (Funcionario) item;
-        return conexao.executar("DELETE FROM FUNCIONARIO WHERE cpf = '"+f.getCpf()+"'");
+        return conexao.executar("DELETE FROM FUNCIONARIO WHERE matricula = '"+f.getMatricula()+"'");
     }
 
     @Override
@@ -40,30 +41,48 @@ public class DaoFuncionario implements Dao {
        for(String linha:result){
            String[] campo = linha.split(",");
            Funcionario funcionario = (Funcionario) fabr.criaObjeto();
-           funcionario.setCodigo(campo[0]);
-           funcionario.setNome(campo[1]);
-           funcionario.setMatricula(campo[2]);
-           funcionario.setCpf(campo[3]);
-           funcionario.setSenha(campo[4]);
+           funcionario.setMatricula(campo[0]);
+           funcionario.setRg(campo[1]);
+           funcionario.setNome(campo[2]);
+           funcionario.setSenha(campo[3]);
            lista.add(funcionario);
        }
        return lista;
     }
 
     @Override
-    public boolean existe(Item item) {
-        Funcionario f = (Funcionario) item;
-        return conexao.executar("DELETE FROM FUNCIONARIO WHERE cpf = '"+f.getCpf()+"'");
+    public boolean existe(Item item1) {
+        Funcionario item = (Funcionario) item1;
+        String[] result = conexao.getValores("SELECT matricula FROM FUNCIONARIO WHERE matricula = '"+item.getMatricula()+"'").split(";");
+        for(String str:result){
+            if(item.getMatricula().equals(str)){
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
-    public boolean existe(String cpf) {
-        return conexao.executar("DELETE FROM FUNCIONARIO WHERE cpf = '"+cpf+"'");
+    public boolean existe(String matricula) {
+        String[] result = conexao.getValores("SELECT matricula FROM FUNCIONARIO WHERE matricula = '"+matricula+"'").split(";");
+        for(String str:result){
+            if(str.equals(matricula)){
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
     public List<Item> listarVinculo(Item item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Funcionario f = (Funcionario) item;
+        String[] result = conexao.getValores("SELECT *FROM CLIENTE WHERE matricula_funcionario = '"+f.getMatricula()+"'").split(";");
+        List<Item> list = new ArrayList<>();
+        for(String str:result){
+            String[] dado = str.split(",");
+        }
+        
+        return list;
     }
 
     @Override

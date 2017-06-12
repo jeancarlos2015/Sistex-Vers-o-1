@@ -62,8 +62,6 @@ public class Persistencia {
             String result="";
             rs.next();
             int index;
-            
-            
             do {
                 for(index=0;index<item.getAtributos().length-1;index++){
                     result +=rs.getString(item.getAtributos()[index])+",";

@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://servico/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://servico/">
+
+<xs:element name="getCliente" type="tns:getCliente"/>
+
+<xs:element name="getClienteResponse" type="tns:getClienteResponse"/>
+
+<xs:element name="getPedido" type="tns:getPedido"/>
+
+<xs:element name="getPedidoResponse" type="tns:getPedidoResponse"/>
+
+<xs:element name="getProduto" type="tns:getProduto"/>
+
+<xs:element name="getProdutoResponse" type="tns:getProdutoResponse"/>
+
+<xs:element name="listarClientes" type="tns:listarClientes"/>
+
+<xs:element name="listarClientesResponse" type="tns:listarClientesResponse"/>
+
+<xs:element name="listarFuncionarios" type="tns:listarFuncionarios"/>
+
+<xs:element name="listarFuncionariosResponse" type="tns:listarFuncionariosResponse"/>
+
+<xs:element name="listarPedidos" type="tns:listarPedidos"/>
+
+<xs:element name="listarPedidosResponse" type="tns:listarPedidosResponse"/>
+
+<xs:element name="listarProdutos" type="tns:listarProdutos"/>
+
+<xs:element name="listarProdutosResponse" type="tns:listarProdutosResponse"/>
+
+<xs:complexType name="getCliente">
+<xs:sequence>
+<xs:element name="codigo" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getClienteResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarFuncionarios">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarFuncionariosResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPedido">
+<xs:sequence>
+<xs:element name="codigo" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPedidoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarProdutos">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarProdutosResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getProduto">
+<xs:sequence>
+<xs:element name="codigo" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getProdutoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarPedidos">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarPedidosResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarClientes">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarClientesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

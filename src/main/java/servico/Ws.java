@@ -7,23 +7,19 @@ package servico;
 
 import com.google.gson.Gson;
 import com.sistex.cdp.Cliente;
-import com.sistex.cdp.Funcionario;
-import com.sistex.cdp.Item;
 import com.sistex.cdp.Pedido;
 import com.sistex.cdp.Produto;
 import com.sistex.cgd.Dao;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 import util.Produtos;
 import util.Pedidos;
 import util.Clientes;
 
-import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import padroes.Fabrica;
-import padroes.Tipo;
 import static padroes.Tipo.cliente;
 import static padroes.Tipo.funcionario;
 import static padroes.Tipo.pedido;
@@ -68,8 +64,8 @@ public class Ws {
         Fabrica f = Fabrica.make(produto);
         Dao dao = f.criaDao();
         Produtos p = new Produtos();
-        p.setProdutos(dao.listar());
-        return g.toJson(p);
+        List<String> lista = new ArrayList(dao.listar());
+        return g.toJson(lista);
     }
     
     @WebMethod(operationName = "listarFuncionarios")

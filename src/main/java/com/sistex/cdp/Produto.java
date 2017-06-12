@@ -14,9 +14,8 @@ public class Produto extends ItemAbstract{
     private String nome="produto";
     private float preco=0;
     private int quantidade=0;
-    
-    private String descricao="nenhum";
-    
+    private String imagem="";
+    private String codigo;
     public Produto() {
         super("produto");
     }
@@ -42,18 +41,19 @@ public class Produto extends ItemAbstract{
         return codigo+" "+nome+" "+descricao+" "+preco+" "+marca+" "+quantidade;
     }
     
-    @Override
-    public String getTipo(){
-        if(getNome().contains("salada")){
+    
+    public String getTipoImagem(){
+        String nome1 = this.nome.toLowerCase();
+        if(nome1.contains("salada")){
             return "salada";
         }
-        else if(getNome().contains("tropeiro")){
+        else if(nome1.contains("tropeiro")){
             return "tropeiro";
         }
-        else if(getNome().contains("macarrao")){
+        else if(nome1.contains("macarrao") || nome1.contains("espaguete")){
             return "espaguete";
         }
-        else if(getNome().contains("frango")){
+        else if(nome1.contains("frango")){
             return "prato1";
         }
         else if(getNome().contains("bife")){
@@ -71,14 +71,14 @@ public class Produto extends ItemAbstract{
     }
 
     /**
-     * @return the nome
+     * @return the nome1
      */
     public String getNome() {
         return nome;
     }
 
     /**
-     * @param nome the nome to set
+     * @param nome the nome1 to set
      */
     public void setNome(String nome) {
         this.nome = nome;
@@ -119,5 +119,5 @@ public class Produto extends ItemAbstract{
     public void setQuantidade(String quantidade){
         this.quantidade = Integer.parseInt(quantidade);
     }
-
+    
 }
