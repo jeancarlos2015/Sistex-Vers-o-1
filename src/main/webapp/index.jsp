@@ -1,3 +1,10 @@
+<%-- 
+    Document   : index
+    Created on : 12/06/2017, 16:52:07
+    Author     : estagiario33601
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -16,15 +23,15 @@
     <body>
         <!-- CABEÇALHO -->
         <header class="cabecalho container Home1">
-           <a href="index.html"><h1 class="logo"> SISTEC-Especializada em Soluções Digitais </h1></a>
+           <a href="index.jsp"><h1 class="logo"> SISTEC-Especializada em Soluções Digitais </h1></a>
            <button class="btn-menu bg-gradient" ><i class="fa fa-bars fa-lg"></i></button>
 
            <nav class="menu" id="close1">
                <a class="btn-close"><i class="fa fa-times"></i></a>
                <ul>
-                   <li class="home"><a href="index.html">Home</a></li>
-                   <li class="home"><a href="cadastroClientes.html">Cadastro De Cliente</a></li>
-                   <li class="home"><a href="acesso.html">Acesso</a></li>
+                   <li class="home"><a href="index.jsp">Home</a></li>
+                   <li class="home"><a href="cadastroClientes.jsp">Cadastro De Cliente</a></li>
+                   <li class="home"><a href="acesso.jsp">Acesso</a></li>
                </ul>
            </nav>
         </header>
@@ -34,25 +41,25 @@
         <main class="imagem servicos container">
          
                 <h1 class="bg-titulo">PRODUTOS</h1>
-                <form method="post" action="acesso.html" onsubmit="mensagem();">
+                <form method="post" action="acesso.jsp" onsubmit="mensagem();">
                     <div class="produtos">
                    
                         <figure class="figure" >
-                            <a href="acesso.html"><img class="prato" src="img/prato.png" alt="..." class="img-thumbnail"></a> 
+                            <a href="acesso.jsp"><img class="prato" src="img/prato.png" alt="..." class="img-thumbnail"></a> 
                             <figcaption class="figure-caption">Prato Personalizado</figcaption>
                         </figure>
 
                         <figure class="figure" >
-                            <a href="acesso.html"><img class="prato" src="img/tropeiro.png" alt="..." class="img-thumbnail"></a> 
+                            <a href="acesso.jsp"><img class="prato" src="img/tropeiro.png" alt="..." class="img-thumbnail"></a> 
                             <figcaption class="figure-caption">Tropeiro</figcaption>
                         </figure>
 
                         <figure class="figure" >
-                            <a href="acesso.html"><img class="prato" src="img/espaguete.png" alt="..." class="img-thumbnail"></a> 
+                            <a href="acesso.jsp"><img class="prato" src="img/espaguete.png" alt="..." class="img-thumbnail"></a> 
                             <figcaption class="figure-caption">Espaguete</figcaption>
                         </figure>
                         <figure class="figure" >
-                            <a href="acesso.html"><img class="prato" src="img/salada.png" alt="..." class="img-thumbnail"></a> 
+                            <a href="acesso.jsp"><img class="prato" src="img/salada.png" alt="..." class="img-thumbnail"></a> 
                             <figcaption class="figure-caption">Salada</figcaption>
                         </figure>
                         

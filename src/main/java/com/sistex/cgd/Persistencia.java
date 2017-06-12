@@ -50,34 +50,34 @@ public class Persistencia {
             return false;
         }
     }
- 
-    public  String[] getValores(String comando, Item item){
-        try {
-            Class.forName(driver);
-            con = DriverManager.getConnection(url, usuario, senha);
-            stm = con.createStatement(); 
-            rs = stm.executeQuery(comando);
-            String result="";
-            rs.next();
-            int index;
-            do {
-                for(index=0;index<item.getAtributos().length-1;index++){
-                    result +=rs.getString(item.getAtributos()[index])+",";
-                }
-                result+=rs.getString(item.getAtributos()[index])+";";
-            }while (rs.next());
-            rs.close();
-            stm.close();
-            
-            //Editado 21/09/2011 para correção: executeQuery é usado para pesquisa, executeUpdate deve ser usado para inserir  
-            con.close();
-            return result.split(";");
-        } catch (SQLException |ArrayIndexOutOfBoundsException | ClassNotFoundException ex) {
-            System.out.println(ex.getCause());
-              return null;
-        }
-       
-    }
+// 
+//    public  String[] getValores(String comando, Item item){
+//        try {
+//            Class.forName(driver);
+//            con = DriverManager.getConnection(url, usuario, senha);
+//            stm = con.createStatement(); 
+//            rs = stm.executeQuery(comando);
+//            String result="";
+//            rs.next();
+//            int index;
+//            do {
+//                for(index=0;index<item.getAtributos().length-1;index++){
+//                    result +=rs.getString(item.getAtributos()[index])+",";
+//                }
+//                result+=rs.getString(item.getAtributos()[index])+";";
+//            }while (rs.next());
+//            rs.close();
+//            stm.close();
+//            
+//            //Editado 21/09/2011 para correção: executeQuery é usado para pesquisa, executeUpdate deve ser usado para inserir  
+//            con.close();
+//            return result.split(";");
+//        } catch (SQLException |ArrayIndexOutOfBoundsException | ClassNotFoundException ex) {
+//            System.out.println(ex.getCause());
+//              return null;
+//        }
+//       
+//    }
     
     private String obterTabela(String comando){
             String comando1 = comando.toLowerCase();

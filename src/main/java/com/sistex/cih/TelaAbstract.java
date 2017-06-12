@@ -96,7 +96,7 @@ public abstract class TelaAbstract {
     protected void criaBotao(PrintWriter pw, String descricao){
         pw.println("<button type='submit' class='bg-white radius campo'> "+descricao+"</button>");
     }
-    public void alert(String msg, PrintWriter pw){
+    public static void alert(String msg, PrintWriter pw){
         pw.println("<script> alert("+msg+");<script>");
     }
     public static boolean valida(HttpServletRequest request, String[] atributos){

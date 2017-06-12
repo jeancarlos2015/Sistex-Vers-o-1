@@ -85,10 +85,7 @@ public class DaoFuncionario implements Dao {
         return list;
     }
 
-    @Override
-    public Item getItem(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
     @Override
     public Item getItem(String cpf) {

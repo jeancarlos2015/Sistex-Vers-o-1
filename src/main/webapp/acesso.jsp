@@ -1,3 +1,10 @@
+<%-- 
+    Document   : acesso
+    Created on : 12/06/2017, 16:52:19
+    Author     : estagiario33601
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,14 +21,14 @@
     <body>
 <!-- Cabeçalho da pagina -->
         <header class="cabecalho container">
-            <a href="index.html"><h1 class="logo"> SISclientes</h1></a>
+            <a href="index.jsp"><h1 class="logo"> SISclientes</h1></a>
             <button class="btn-menu bg-gradient"><i class="fa fa-bars fa-lg"></i></button>
             <nav class="menu" id="close1">
                <a class="btn-close"><i class="fa fa-times"></i></a>
                <ul>
-                  <li class="home"><a href="index.html">Home</a></li>
-                  <li class="home"><a href="cadastroClientes.html">Cadastro De Cliente</a></li>
-                  <li class="home"><a href="acesso.html">Acesso</a></li>
+                  <li class="home"><a href="index.jsp">Home</a></li>
+                  <li class="home"><a href="cadastroClientes.jsp">Cadastro De Cliente</a></li>
+                  <li class="home"><a href="acesso.jsp">Acesso</a></li>
                </ul>
            </nav>
         </header>
@@ -33,7 +40,6 @@
                 <input class="bg-white radius campo" type="password"  name="senha" placeholder="Senha do cliente" required>
                 <input class="oculto" type="text" value="cliente"  name="tipo">
                 <input class="oculto" type="text" value="autenticacao"  name="operacao">
-                
                 <button type="submit" class="bg-white radius campo"> Entrar </button>
             </form>
         </section>

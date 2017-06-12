@@ -55,9 +55,12 @@ public class DaoCliente implements Dao{
     @Override
     public boolean existe(Item cliente) {
         Cliente item = (Cliente) cliente;
-       String info[] = conexao.getValores("SELECT cpf FROM cliente WHERE cpf='"+item.getCpf()+"' and senha='"+item.getSenha()+"'").split(";");
+       String info[] = conexao.getValores("SELECT cpf,senha FROM cliente WHERE cpf='"+item.getCpf()+"' and senha='"+item.getSenha()+"'").split(";");
         for(String str:info){
-            if(str.equals(item.getCpf())){
+            String[] dado = str.split(",");
+            String cpf = dado[0];
+            String senha = dado[1];
+            if(cpf.equals(item.getCpf()) && senha.equals(item.getSenha())){
                 return true;
             }
         }
@@ -66,7 +69,7 @@ public class DaoCliente implements Dao{
 
     @Override
     public boolean existe(String codigo) {
-        String[] info = conexao.getValores("SELECT codigo FROM cliente WHERE codigo="+codigo).split(";");
+        String[] info = conexao.getValores("SELECT cpf FROM cliente WHERE cpf='"+codigo+"'").split(";");
         boolean achou=false;
         for(String str:info){
             if(str.equals(codigo)){
@@ -81,10 +84,7 @@ public class DaoCliente implements Dao{
         return null;
     }
 
-    @Override
-    public Item getItem(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
     @Override
     public Item getItem(String cpf) {

@@ -58,6 +58,7 @@ public class ControladorCliente extends HttpServlet{
         } 
     }
     private void autentica(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        TelaAbstract.alert("Esse usuario não existe!!!", response.getWriter());
         if(request.getParameter("operacao").equals("autenticacao")){
             Cliente item = (Cliente)fabrica.criaObjeto();
             api = fabrica.criaApi();
@@ -65,7 +66,7 @@ public class ControladorCliente extends HttpServlet{
             item.setSenha(request.getParameter("senha"));
             TelaAbstract tela = new TelaControleProdutos();
             if(api.existe(item)){
-                tela.montapagina(response);
+                tela.alert("Esse usuario existe", response.getWriter());
             }else{
                 tela.alert("Esse usuario não existe!!!", response.getWriter());
             }
