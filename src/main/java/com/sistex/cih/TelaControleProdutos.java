@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 public class TelaControleProdutos extends TelaAbstract{
     
     
+  @Override
   public void montahead(PrintWriter pw, String titulo){
         pw.println(" <head>");
         pw.println(" <meta charset='utf-8'>");

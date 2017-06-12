@@ -12,10 +12,6 @@ import com.sistex.cgd.Persistencia;
 import javax.servlet.http.HttpServlet;
 import com.sistex.cgt.InterfaceControlar;
 
-/**
- *
- * @author jean
- */
 public class Fabrica {
     public static Fabrica make(Tipo tipo){
         switch(tipo){

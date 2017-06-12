@@ -4,10 +4,6 @@
  * and open the template in the editor.
  */
 package com.sistex.cgt;
-
-import com.sistex.cdp.Item;
-import com.sistex.cdp.Pedido;
-import java.util.List;
 import padroes.Fabrica;
 import static padroes.Tipo.pedido;
 

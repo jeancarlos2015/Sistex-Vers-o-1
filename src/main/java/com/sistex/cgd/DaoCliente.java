@@ -23,8 +23,8 @@ public class DaoCliente implements Dao{
     @Override
     public boolean cadastrar(Item cliente) {
         Cliente item = (Cliente) cliente;
-        return conexao.executar("INSERT INTO CLIENTE(cpf, matricula_funcionario, nome, idade, email, senha) " +
-        "VALUES('"+item.getCpf()+"','"+item.getMatricula()+"','"+item.getNome()+"',"+item.getIdade()+"','"+item.getEmail()+"','"+item.getSenha()+"')");
+        return conexao.executar("INSERT INTO CLIENTE(cpf, matricula, nome, idade, email, senha) " +
+        "VALUES('"+item.getCpf()+"','"+item.getMatricula()+"','"+item.getNome()+"',"+item.getIdade()+",'"+item.getEmail()+"','"+item.getSenha()+"')");
     }
 
     @Override

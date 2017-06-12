@@ -15,7 +15,7 @@ public class Cliente extends ItemAbstract{
     private int idade=0;
     private String email="fulano@servidor";
     private String senha="senha";
-    private String matricula="123123";
+    private String matricula="0";
     public Cliente() {
         super("cliente");
         this.nome = "fulano";

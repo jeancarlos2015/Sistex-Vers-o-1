@@ -5,10 +5,8 @@
  */
 package com.sistex.cgt;
 
-import com.sistex.cdp.Cliente;
 import com.sistex.cdp.Item;
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  *

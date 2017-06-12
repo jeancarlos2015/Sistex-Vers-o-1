@@ -66,8 +66,9 @@ public class ControladorCliente extends HttpServlet{
             TelaAbstract tela = new TelaControleProdutos();
             if(api.existe(item)){
                 tela.montapagina(response);
+            }else{
+                tela.alert("Esse usuario não existe!!!", response.getWriter());
             }
-            
         } 
     }
     
@@ -83,8 +84,7 @@ public class ControladorCliente extends HttpServlet{
     
     private Item getItem(HttpServletRequest request) {
         Cliente item = (Cliente) fabrica.criaObjeto();
-        //item.setCodigo(request.getParameter("cpf"));
-        item.setMatricula(request.getParameter("matricula_funcionario"));
+        item.setCpf(request.getParameter("cpf"));
         item.setNome(request.getParameter("nome"));
         item.setIdade(request.getParameter("idade"));
         item.setEmail(request.getParameter("email"));
