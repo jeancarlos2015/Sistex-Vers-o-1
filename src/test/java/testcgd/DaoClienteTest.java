@@ -24,28 +24,32 @@ public class DaoClienteTest {
     
 
     
-    @Test
-    public void testCadastrar() {
-        System.out.println("cadastrar");
-        Cliente cliente = (Cliente) f.criaObjeto();
-        cliente.setCpf("789789789");
-        cliente.setDescricao("ooioi");
-        cliente.setNome("jean");
-        cliente.setIdade("10");
-        cliente.setEmail("fulano@gmail.com");
-        cliente.setSenha("teste");
-        cliente.setMatricula("0");
-        boolean result = dao.cadastrar(cliente);
-        assertTrue(result);
-    }
-
-
 //    @Test
-//    public void testListar() {
-//        System.out.println("listar");
-//        List<Item> result = dao.listar();
-//        assertNotNull(result);
+//    public void testCadastrar() {
+//        System.out.println("cadastrar");
+//        Cliente cliente = (Cliente) f.criaObjeto();
+//        cliente.setCpf("789789");
+//        cliente.setDescricao("ooioi");
+//        cliente.setNome("jonas");
+//        cliente.setIdade("10");
+//        cliente.setEmail("fulano@gmail.com");
+//        cliente.setSenha("teste");
+//        cliente.setMatricula("0");
+//        boolean result = dao.cadastrar(cliente);
+//        assertTrue(result);
 //    }
+
+
+    @Test
+    public void testListar() {
+        System.out.println("listar");
+        List<Item> result = dao.listar();
+        for(Item i:result){
+            Cliente cli = (Cliente) i;
+            System.out.println(cli.toString());
+        }
+        assertNotNull(result);
+    }
 //
 //
 //    @Test

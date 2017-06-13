@@ -11,7 +11,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title> CADASTRO DE CLIENTES</title>
+        <title> CONTROLE DE FUNCIONÁRIOS</title>
 
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -30,24 +30,31 @@
                 <ul>
                     <li class="home"><a href="index.jsp">Home</a></li>
                     <li class="home"><a href="cadastroClientes.jsp">Cadastro De Cliente</a></li>
+                    <li class="home"><a href="controleFuncionarios.jsp">Controle De Funcionários</a></li>
                     <li class="home"><a href="acesso.jsp">Acesso</a></li>
                 </ul>
             </nav>
         </header>
         <!-- Formulario de cadastro  -->
         <section class="newsletter container bg-grey">
-            <h1 class="bg-titulo">CADASTRO DE CLIENTES</h1>
+            <h1 class="bg-titulo">MENU FUNCIONÁRIOS</h1>
             <form method="post" action="Controlador">
-
-                <input class="bg-white radius campo" type="text"  name="nome" placeholder="Nome do Cliente" required>
-                <input class="bg-white radius campo" type="text"  name="idade" placeholder="Idade do Cliente" required>
-                <input class="bg-white radius campo" type="text"  name="cpf" placeholder="CPF do cli ente" required>
-                <input class="bg-white radius campo" type="text"  name="email" placeholder="Email do cliente" required>
-                <input class="bg-white radius campo" type="password"  name="senha" placeholder="Senha do cliente" required>
                 <input class="oculto" type="text" value="cliente"  name="tipo">
                 <input class="oculto" type="text" value="cadastro"  name="operacao">
-                <button type="submit" class="bg-white radius campo"> Cadastrar Cliente </button>
+                <button type="submit" class="bg-white radius campo"> Controle de Clientes </button>
             </form>
+            <form method="post" action="Controlador">
+                <input class="oculto" type="text" value="cliente"  name="tipo">
+                <input class="oculto" type="text" value="cadastro"  name="operacao">
+                <button type="submit" class="bg-white radius campo"> Controle De Funcionário </button>
+            </form>
+            
+            <form method="post" action="Controlador">
+                <input class="oculto" type="text" value="cliente"  name="tipo">
+                <input class="oculto" type="text" value="cadastro"  name="operacao">
+                <button type="submit" class="bg-white radius campo"> Controle De Produtos </button>
+            </form>
+            
         </section>
 
         <!-- Rodapé da página  -->

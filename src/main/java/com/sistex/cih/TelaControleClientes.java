@@ -17,19 +17,23 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class TelaControleClientes extends TelaAbstract{
    
-    
-   
+    public void inicioHtml(HttpServletResponse response) throws IOException{
+        PrintWriter pw = response.getWriter();
+            pw.println("<!DOCTYPE html>");
+            pw.println(" <html lang='pt-br'>");
+    }
+   public void fimHtml(PrintWriter pw){
+       pw.println("</html>");
+   }
     @Override
     public void montapagina(HttpServletResponse response){
         PrintWriter pw = null;
         try {
-            pw = response.getWriter();
-            pw.println(" <!DOCTYPE html>");
-            pw.println(" <html lang='pt-br'>");
+            inicioHtml(response);
             montahead(pw, "CONTROLE DE CLIENTES");
             montabody(pw, "CONTROLE DE CLIENTES");
-
-            pw.println("</html>");
+            fimHtml(pw);
+            
         } catch (IOException ex) {
             Logger.getLogger(TelaControleClientes.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
@@ -42,6 +46,7 @@ public class TelaControleClientes extends TelaAbstract{
         pw.println("<body>");
         montamenu(pw);
         montacampos(pw,titulo);
+        montaTabela(pw,titulo);
         montarodape(pw);
         pw.println("</body>");
     }
@@ -54,9 +59,9 @@ public class TelaControleClientes extends TelaAbstract{
         pw.println("<nav class='menu' id='close1'>");
         pw.println("<a class='btn-close'><i class='fa fa-times'></i></a>");
         pw.println("<ul>");
-        criaItemMenu(pw, "home", "produtos.jsp", "Produtos");
-        criaItemMenu(pw, "home", "acesso.jsp", "Acesso");
-        criaItemMenu(pw, "acesso123","pedidos.jsp", "Pedidos");
+        criaItemMenu(pw, "home", "produtos.jsp", "Consulta de Produtos");
+        criaItemMenu(pw, "home", "acesso.jsp", "Logout");
+        criaItemMenu(pw, "acesso123","pedidos.jsp", "Solicitacao de Pedidos");
         pw.println("</ul>");
         pw.println("</nav>");
         pw.println("</header>");
@@ -67,13 +72,12 @@ public class TelaControleClientes extends TelaAbstract{
         pw.println("<section class='newsletter container bg-grey'>");
         pw.println("<h1 class='bg-titulo'>"+titulo+"</h1>");
         pw.println("<form method='post' action='Controlador'>");
-        criaCampoOculto(pw, "sistema", "1");
         criaCampo(pw, "nome", "Nome do cliente");
         criaCampo(pw, "idade", "Idade do cliente");
         criaCampo(pw, "cpf", "CPF do cliente");
         criaCampo(pw, "email", "Email do Cliente");
         criaCampoSenha(pw, "senha", "Senha do Cliente");
-        criaCampoOculto(pw, "tipo", "funcionario");
+        criaCampoOculto(pw, "tipo", "cliente");
         criaCampoOculto(pw, "operacao", "cadastro");
         criaBotao(pw, "Cadastrar Clientes");
         pw.println("</form>");

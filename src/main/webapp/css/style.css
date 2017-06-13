@@ -36,8 +36,14 @@
 .titulo h2,h3{
   margin-right:50%;
 }
-td{
-    text-align: left;
+
+.botao-teste{
+    width: 10px;
+    height: 10px;
+    background-color: graytext  ;
+}
+td,tr,th{
+    text-align: center;
 }
 
   /*--fim estilo da tabela---*/

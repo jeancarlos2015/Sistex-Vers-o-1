@@ -42,7 +42,7 @@ public class TelaControleProdutos extends TelaAbstract{
         pw.println("<body>");
         montamenu(pw);
         montacampos(pw,titulo);
-        montaTabela(pw);
+        montaTabela(pw,titulo);
         montarodape(pw);
         pw.println("</body>");
   }

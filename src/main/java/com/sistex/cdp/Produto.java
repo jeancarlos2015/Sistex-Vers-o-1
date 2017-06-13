@@ -16,6 +16,9 @@ public class Produto extends ItemAbstract{
     private int quantidade=0;
     private String imagem="";
     private String codigo;
+    
+    private String cnpj;
+    private String matricula;
     public Produto() {
         super("produto");
     }
@@ -32,13 +35,13 @@ public class Produto extends ItemAbstract{
      
     @Override
     public  String[] getAtributos(){
-        String vetor[] = {"codigo","nome","descricao","preco","marca","quantidade"};
+        String vetor[] = {"codigo_produto","cnpj","matricula","nome","descricao","preco", "marca", "quantidade"};
         return vetor;
     }
     
     @Override
     public String toString(){
-        return codigo+" "+nome+" "+descricao+" "+preco+" "+marca+" "+quantidade;
+        return codigo+" "+getCnpj()+" "+matricula+" "+nome+" "+descricao+" "+preco+" "+marca+" "+quantidade;
     }
     
     
@@ -118,6 +121,34 @@ public class Produto extends ItemAbstract{
    
     public void setQuantidade(String quantidade){
         this.quantidade = Integer.parseInt(quantidade);
+    }
+
+    /**
+     * @return the cnpj
+     */
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    /**
+     * @param cnpj the cnpj to set
+     */
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    /**
+     * @return the matricula
+     */
+    public String getMatricula() {
+        return matricula;
+    }
+
+    /**
+     * @param matricula the matricula to set
+     */
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
     
 }

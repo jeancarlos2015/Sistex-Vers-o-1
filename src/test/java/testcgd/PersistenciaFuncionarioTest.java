@@ -24,7 +24,7 @@ public class PersistenciaFuncionarioTest {
     @Test
     public void testExecutar() {
         System.out.println("INSERIR FUNCIONARIO");
-        String comando = "INSERT INTO FUNCIONARIO(matricula,rg,nome,senha) VALUES('0','123','123','teste')";
+        String comando = "INSERT INTO FUNCIONARIO(matricula, rg, nome, senha) VALUES('0','123','123','teste')";
         Persistencia instance = new Persistencia();
         boolean expResult = true;
         boolean result = instance.executar(comando);

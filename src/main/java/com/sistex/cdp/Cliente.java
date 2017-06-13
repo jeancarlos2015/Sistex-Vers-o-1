@@ -5,6 +5,9 @@
  */
 package com.sistex.cdp;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author jean
@@ -47,14 +50,14 @@ public class Cliente extends ItemAbstract{
     
     @Override
     public  String[] getAtributos(){
-        String vetor[] = {"cpf","nome","idade","email","senha","matricula"};
+        String vetor[] = {"cpf","matricula","nome","idade","email","senha"};
         return vetor;
     }
     
     
     @Override
     public String toString(){
-        return getCpf()+" "+getNome()+" "+getIdade()+" "+" "+getEmail()+" "+getSenha();
+        return getCpf()+" "+getMatricula()+" "+getNome()+" "+getIdade()+" "+getEmail()+" "+getSenha();
     }
 
     
@@ -108,6 +111,8 @@ public class Cliente extends ItemAbstract{
     public String getMatricula() {
         return matricula;
     }
+
+   
 
   
         

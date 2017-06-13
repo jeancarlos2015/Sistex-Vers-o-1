@@ -1,6 +1,6 @@
 <%-- 
-    Document   : cadastroClientes
-    Created on : 12/06/2017, 16:51:56
+    Document   : acesso
+    Created on : 12/06/2017, 16:52:19
     Author     : estagiario33601
 --%>
 
@@ -11,8 +11,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title> CADASTRO DE CLIENTES</title>
-
+        <title>Acesso</title>
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
@@ -36,17 +35,41 @@
         </header>
         <!-- Formulario de cadastro  -->
         <section class="newsletter container bg-grey">
-            <h1 class="bg-titulo">CADASTRO DE CLIENTES</h1>
+            <h1 class="bg-titulo">Acesso</h1>
             <form method="post" action="Controlador">
-
-                <input class="bg-white radius campo" type="text"  name="nome" placeholder="Nome do Cliente" required>
-                <input class="bg-white radius campo" type="text"  name="idade" placeholder="Idade do Cliente" required>
-                <input class="bg-white radius campo" type="text"  name="cpf" placeholder="CPF do cli ente" required>
-                <input class="bg-white radius campo" type="text"  name="email" placeholder="Email do cliente" required>
-                <input class="bg-white radius campo" type="password"  name="senha" placeholder="Senha do cliente" required>
+                <input class="oculto" type="text" value="pedido"  name="tipo">
+                <input class="oculto" type="text" value="autenticacao"  name="operacao">
+                <button type="submit" class="bg-white radius campo"> pedidos </button>
+            </form>
+            
+            <form method="post" action="Controlador">
                 <input class="oculto" type="text" value="cliente"  name="tipo">
                 <input class="oculto" type="text" value="cadastro"  name="operacao">
-                <button type="submit" class="bg-white radius campo"> Cadastrar Cliente </button>
+                <button type="submit" class="bg-white radius campo"> clientes </button>
+            </form>
+            
+            <form method="post" action="Controlador">
+                <input class="oculto" type="text" value="produto"  name="tipo">
+                <input class="oculto" type="text" value="autenticacao"  name="operacao">
+                <button type="submit" class="bg-white radius campo"> produtos</button>
+            </form>
+            
+            <form method="post" action="Controlador">
+                <input class="oculto" type="text" value="cliente"  name="tipo">
+                <input class="oculto" type="text" value="autenticacao"  name="operacao">
+                <button type="submit" class="bg-white radius campo">clientes</button>
+            </form>
+            
+            <form method="post" action="Controlador">
+                <input class="oculto" type="text" value="cliente"  name="tipo">
+                <input class="oculto" type="text" value="autenticacao"  name="operacao">
+                <button type="submit" class="bg-white radius campo"> funcionarios </button>
+            </form>
+            
+            <form method="post" action="Controlador">
+                <input class="oculto" type="text" value="cliente"  name="tipo">
+                <input class="oculto" type="text" value="autenticacao"  name="operacao">
+                <button type="submit" class="bg-white radius campo"> fornecedores </button>
             </form>
         </section>
 

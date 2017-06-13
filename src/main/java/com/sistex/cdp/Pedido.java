@@ -34,13 +34,13 @@ public class Pedido extends ItemAbstract{
    
    @Override
     public  String[] getAtributos(){
-        String vetor[] = {"codigo_pedido","cpf","codigo_produto","descricao","preco_total"};
+        String vetor[] = {"codigo_pedido","codigo_produto","cpf","descricao","preco_total"};
         return vetor;
     }
     
     @Override
     public String toString(){
-        return getCodigo_pedido()+" "+getCpf_cliente()+" "+getCodigo_produto()+" "+ getDescricao()+" "+ getPreco_total();
+        return getCodigo_pedido()+" "+getCodigo_produto()+" "+getCpf_cliente()+" "+ getDescricao()+" "+ getPreco_total();
     }
 
     /**

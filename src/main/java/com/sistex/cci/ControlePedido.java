@@ -17,6 +17,7 @@ import padroes.Fabrica;
 import padroes.Tipo;
 import com.sistex.cgt.InterfaceControlar;
 import com.sistex.cih.TelaAbstract;
+import com.sistex.cih.TelaControlePedidos;
 
 /**
  *
@@ -28,9 +29,8 @@ public class ControlePedido extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            cadastrar(request, response);
-            excluir(request, response);
-            listar(request, response);
+            TelaAbstract tela = new TelaControlePedidos();
+            tela.montapagina(response);
     }
     
     public void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException{

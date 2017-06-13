@@ -80,3 +80,12 @@ function showhide(id){
         document.getElementById(id).style.display = 'none';
     }
 }
+
+function funcao(){
+    $(".btn-menu").click(function () {
+    $(".menu").show();
+    });
+    $(".btn-close").click(function () {
+        $(".menu").hide();
+    });
+}
